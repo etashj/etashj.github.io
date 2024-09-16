@@ -1,0 +1,67 @@
+/*
+--light-green #c7fba5
+--green        #adf182
+--purple       #916cad
+--dark-purple  #523874
+--magenta      #dc7d68 
+walkman color: #616a72
+--text-main    #f2e7e6
+off white ish  #eaedf1
+unit01         #735893
+*/
+
+@font-face {
+    font-family: eva-matisse;
+    src: url(../assets/EVA-Matisse_Standard.ttf) format("truetype");
+}
+body {
+    font-family: 'eva-matisse';
+    color: white;
+    background-color: #0f0816;
+    padding: 20px; 
+}
+#main {
+    display: flex; 
+    padding-left: 20%; 
+    padding-right: 20%;
+    width: 90%-3px;
+    height: 90%-3px;
+    flex-direction: row;
+    /* background-color: blue; */
+    align-items: stretch;
+    align-content: center;
+    justify-content: center;
+    flex-wrap: nowrap;
+    flex-direction: row;
+}
+#big {
+    background-color: inherit;
+    /* border: solid 3px #735893; */
+    width: 100%;
+    padding: 35px; 
+    /* width: 90%-3px;
+    height: 90%-3px; */
+    /* padding-left: 35px; 
+    padding-right: 35px;  */
+    /* margin-right: 50%; 
+    margin-left: 20%; */
+}
+#content {
+    background-color: inherit;
+    /* border: solid 3px #735893;  */
+    width: 100%;
+    width: 90%-3px;
+    height: 90%-3px;
+    padding: 35px; 
+    padding-top: 75px;
+    padding-bottom: 75px;
+}
+#name {
+    font-size: 3em; 
+}
+#icons{
+    display: flex;
+    align-items: flex-end; 
+    justify-content: flex-start;
+    column-gap: 35px;
+}
