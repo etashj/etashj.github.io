@@ -5,11 +5,18 @@ let currentHeader = firstH2;
 
 
 window.onload = function() {
-    const headers = document.querySelectorAll('.section-title');
+    const sections = document.querySelectorAll('.section');
     let i=0; 
-    headers.forEach(header => {
+    sections.forEach(section => {
+        const header = section.querySelector('.section-title');
         header.innerHTML = (i+1) + " " + header.innerHTML;
         i++;
+        let j=0; 
+        section.querySelectorAll('.item').forEach(item => {
+            const itemTitle = item.querySelector(".content-item-header");
+            itemTitle.innerHTML =  "<span style='font-size: 0.7em;'>" + (i) + "." + (j+1) + "</span> " + itemTitle.innerHTML;
+            j++;
+        });
     });
     if (firstH2.innerHTML.length > 9) {
         walkWomanDispText.innerHTML = firstH2.innerHTML.substring(0, 9) + "…";    

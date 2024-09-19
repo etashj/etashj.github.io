@@ -91,7 +91,7 @@ h1 {
     position: -webkit-sticky;
     top: 10px; /* required */
     /* overflow-y: auto; */
-    margin-top: 3vh; 
+    padding-top: 3vh; 
 }
 .content {
     background-color: inherit;
@@ -154,7 +154,7 @@ h1 {
 .copy-text {
     font-size: min(0.75vw, 15px);
     color: rgb(204, 250, 240);
-    align-self: baseline;
+    /* align-self: baseline; */
     bottom: 0px;
     margin-top: auto;
 }
@@ -222,8 +222,8 @@ h1 {
     z-index: 1;
 }
 .item {
-    margin-left: 1vw; 
-    padding: 0.5vw 1vw 1vw 1vw; 
+    /* margin-left: 1vw;  */
+    padding: 0.5vw 1vw 1vw 1.3vw; 
     border-radius: 10px;
 }
 .date {
