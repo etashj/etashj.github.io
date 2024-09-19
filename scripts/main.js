@@ -1,14 +1,20 @@
 const walkWomanDispText = document.getElementById("walkman-disp");
-const contentDiv = document.querySelector('#content');
+const contentDiv = document.querySelector('.content');
 const firstH2 = contentDiv.querySelector('h2');
 let currentHeader = firstH2;
-let currentHeaderInd = 0;
+
 
 window.onload = function() {
-    if (firstH2.innerHTML.length > 7) {
-        walkWomanDispText.innerHTML = "1 " + firstH2.innerHTML.substring(0, 7) + "…";    
+    const headers = document.querySelectorAll('.section-title');
+    let i=0; 
+    headers.forEach(header => {
+        header.innerHTML = (i+1) + " " + header.innerHTML;
+        i++;
+    });
+    if (firstH2.innerHTML.length > 9) {
+        walkWomanDispText.innerHTML = firstH2.innerHTML.substring(0, 9) + "…";    
     } else {
-        walkWomanDispText.innerHTML = "1 " + firstH2.innerHTML.substring(0, 7);    
+        walkWomanDispText.innerHTML = firstH2.innerHTML.substring(0, 9);    
     }
 };
 
@@ -51,7 +57,6 @@ window.addEventListener('scroll', function() {
     let minSpaceHeader = headers[0]; 
     let minSpaceHeaderOff = minSpaceHeader.offsetTop - window.scrollY;
     let minSpaceHeaderInd = 0;
-    let i = 0;
     // Loop through each header and calculate the distance to the current scroll position
     headers.forEach(header => {
         const currentDistance = header.offsetTop-window.scrollY;
@@ -59,16 +64,18 @@ window.addEventListener('scroll', function() {
         if (Math.abs(currentDistance) < Math.abs(minSpaceHeaderOff)) {
             minSpaceHeader = header;
             minSpaceHeaderOff = currentDistance;
-            minSpaceHeaderInd = i;
         }
-        i++;
     });
 
     // Check if the closest header is different from the current header
     if (minSpaceHeader !== currentHeader) {
-        walkWomanDispText.innerHTML = (minSpaceHeaderInd + 1) + " " + minSpaceHeader.innerHTML.substring(0, 7) + "…";
+        if (minSpaceHeader.innerHTML.length > 9) {
+            walkWomanDispText.innerHTML = minSpaceHeader.innerHTML.substring(0, 9) + "…";
+        }
+        else {
+            walkWomanDispText.innerHTML = minSpaceHeader.innerHTML;
+        }
         currentHeader = minSpaceHeader;
-        currentHeaderInd = minSpaceHeaderInd;
     }
 });
 
