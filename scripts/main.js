@@ -78,7 +78,14 @@ document.getElementById("right-skip-svg").onclick = function() {
     });
 }
 document.getElementById("left-skip-svg").onclick = function() {
-    document.querySelectorAll('.section-title')[currentHeaderInd-1].scrollIntoView({
-        behavior: 'smooth'
-    });
+    if (currentHeaderInd!=1) {
+        document.querySelectorAll('.section-title')[currentHeaderInd-1].scrollIntoView({
+            behavior: 'smooth'
+        });
+    } else {
+        window.scrollTo({
+            top: 0, 
+            behavior: 'smooth'
+        });
+    }
 }
