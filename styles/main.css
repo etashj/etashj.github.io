@@ -29,6 +29,7 @@ body {
     margin: 0px; 
     font-size: min(19px, 1vw); 
     min-height: 100vh;
+    /* overflow-x: hidden; */
 }
 .content-item-header {
     color: rgba(149, 249, 227, 0.9);
@@ -123,7 +124,7 @@ h1 {
     height: 2.5vw;
     fill: rgb(204, 250, 240);
 }
-#audio-media-container{
+.audio-media-container{
     max-width: 100%; 
     min-width: 100%;
     /* height: 100%;  */
@@ -238,4 +239,57 @@ h1 {
     flex-wrap: nowrap;
     justify-content: space-between;
     align-items: center;
+}
+.slider {
+    -webkit-transition-duration: 0.75s;
+    transition-duration: 0.75s;
+}
+.pdf-container iframe {
+    width: 100%;
+    height: 100%;
+    border: none;
+  }
+#resume {
+    display: block;
+    width: 100%;
+    height: 85vh; /* Try using the full viewport height */
+    margin: 0;
+    padding-bottom: 1vh;
+}
+  
+#resume iframe {
+    width: 100%;
+    height: 100%;
+    border: none;
+    overflow: hidden;
+}
+
+body {
+    -ms-overflow-style: none;  /* Internet Explorer 10+ */
+    scrollbar-width: none;  /* Firefox */
+}
+body::-webkit-scrollbar { 
+    display: none;  /* Safari and Chrome */
+}
+
+.disk{
+    max-width: 25vw;
+    -webkit-transition-duration: 0.5s;
+    transition-duration: 0.5s;
+    margin: auto; 
+}
+#umd{
+    max-width: 13.33vw; 
+}
+#cubegame{
+    max-width: 16.67vw; 
+}
+#disk-container{
+    height: 25vw; 
+    width: 25vw;  
+    display: table-cell; vertical-align: middle;
+}
+.disk-anim-group {
+    -webkit-transition-duration: 10s;
+    transition-duration: 10s;
 }
