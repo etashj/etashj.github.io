@@ -127,8 +127,8 @@ function switchElements(outgoing1, outgoing2, incoming1, incoming2) {
         outgoing2.style.display = 'none';
         incoming1.style.display = 'flex';
         incoming2.style.display = 'flex';
-        incoming1.style.transform = 'translate(-100%)';
-        incoming2.style.transform = 'translate(100%)';
+        incoming1.style.transform = 'translate(-150%)';
+        incoming2.style.transform = 'translate(150%)';
     }, 500);
     
     setTimeout(() => {
