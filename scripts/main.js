@@ -23,8 +23,16 @@ window.onload = function() {
         let j=0; 
         section.querySelectorAll('.item').forEach(item => {
             const itemTitle = item.querySelector(".content-item-header");
-            itemTitle.innerHTML =  "<span style='font-size: 0.7em;'>" + (i) + "." + (j+1) + "</span> " + itemTitle.innerHTML;
-            j++;
+            if (itemTitle != null ){
+                itemTitle.innerHTML =  "<span style='font-size: 0.7em;'>" + (i) + "." + (j+1) + "</span> " + itemTitle.innerHTML;
+                j++;
+            }
+            const itemTitle2 = item.querySelector(".content-item-header2");
+            if (itemTitle2 != null ){
+                itemTitle2.innerHTML =  "<span style='font-size: 0.7em;'>" + (i) + "." + (j+1) + "</span> " + itemTitle2.innerHTML;
+                j++;
+            }
+            
         });
     });
     if (firstH2.innerHTML.length > 9) {
@@ -32,6 +40,7 @@ window.onload = function() {
     } else {
         walkWomanDispText.innerHTML = firstH2.innerHTML.substring(0, 9);    
     }
+    document.getElementById("year").innerHTML = new Date().getFullYear();
 };
 
 function getScrollPercent() {
@@ -48,7 +57,7 @@ function getScrollPercent() {
 window.addEventListener('scroll', function() {
     const rollers = document.querySelectorAll('.roller');
     rollers.forEach(roller => {
-        const rotation = window.scrollY/6 % 360;
+        const rotation = window.scrollY/10 % 360;
         roller.style.transform = `rotate(${rotation}deg)`;
     });
 
@@ -185,4 +194,32 @@ diskAnimButton.onclick = function() {
     while (nextDisk == visDisk) {
         nextDisk = Math.floor(Math.random() * diskList.length);
     }
+}
+
+var modal = document.getElementById("myModal");
+
+// Get the button that opens the modal
+var btns = Array.prototype.slice.call(document.getElementsByTagName("img"));
+
+// Get the <span> element that closes the modal
+var span = document.getElementsByClassName("close")[0];
+
+// When the user clicks the button, open the modal 
+btns.forEach(btn => {
+    btn.onclick = function() {
+        modal.style.display = "block";
+        document.getElementsByClassName("modal-content")[0].innerHTML = btn.outerHTML + "<br>Click anywhere to close. ";
+    }
+});
+
+// When the user clicks on <span> (x), close the modal
+document.getElementsByClassName("modal-content")[0].onclick = function() {
+  modal.style.display = "none";
+}
+
+// When the user clicks anywhere outside of the modal, close it
+window.onclick = function(event) {
+  if (event.target == modal || event.target == document.getElementsByClassName("modal-content")[0]) {
+    modal.style.display = "none";
+  }
 }
