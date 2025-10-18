@@ -31,7 +31,7 @@
         highlightHeight.target = boundingBox.bottom-boundingBox.top; 
     }
 
-    let active: HTMLButtonElement; 
+    let active = $state<HTMLButtonElement | null>(null);
     let biggie: HTMLDivElement; 
     
     // Run the code whenever mounter or when the page changes
