@@ -36,13 +36,13 @@
     
     // Run the code whenever mounter or when the page changes
     onMount(() => {
-        window.addEventListener('resize', () => updateHighlight(active, biggie));
-        updateHighlight(active, biggie); 
-        return () => window.removeEventListener('resize', () => updateHighlight(active, biggie));
+        window.addEventListener('resize', () => updateHighlight(active!, biggie));
+        updateHighlight(active!, biggie); 
+        return () => window.removeEventListener('resize', () => updateHighlight(active!, biggie));
     });
     afterNavigate(() => {
         // window.addEventListener('resize', () => updateHighlight(active, biggie));
-        updateHighlight(active, biggie); 
+        updateHighlight(active!, biggie); 
         // return () => window.removeEventListener('resize', () => updateHighlight(active, biggie));
     });
 
@@ -160,7 +160,7 @@
                         <a href={tab.path} class='selected'>{tab.id}</a>
                     </button>
                 {:else}
-                    <button id={tab.id} class="dark:text-white px-3 py-1.5 rounded-full transition duration-300 hover:scale-110 active:scale-90" onclick={()=>updateHighlight(active, biggie)}>
+                    <button id={tab.id} class="dark:text-white px-3 py-1.5 rounded-full transition duration-300 hover:scale-110 active:scale-90" onclick={()=>updateHighlight(active!, biggie)}>
                         <a href={tab.path}>{tab.id}</a>
                     </button>
                 {/if}
