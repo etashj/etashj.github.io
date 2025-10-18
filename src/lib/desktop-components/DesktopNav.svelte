@@ -140,7 +140,7 @@
 </script>
 
 <nav class="w-screen flex flex-row content-center py-0">
-    <div class="mx-auto my-4 flex flex-row content-center bg-black/5 dark:bg-white/10 rounded-full gap-4 p-2">
+    <div class="mx-auto my-8 flex flex-row content-center bg-black/5 dark:bg-white/10 rounded-full gap-4 p-2">
         <button class="bg-black/10 dark:bg-white/7.5 dark:text-white px-3 py-1.5 rounded-full transition duration-300 hover:scale-90 active:scale-75">etash jhanji</button>
         <div bind:this={biggie} class="relative flex flex-row content-center rounded-full ">
             <!-- Floating highlight -->
@@ -178,6 +178,6 @@
                 <path d="m12.2,22c4.53,0,8.45-2.91,9.76-7.24.11-.35.01-.74-.25-1-.26-.26-.64-.36-1-.25-.78.23-1.58.35-2.38.35-4.52,0-8.2-3.68-8.2-8.2,0-.8.12-1.6.35-2.38.11-.35.01-.74-.25-1s-.64-.36-1-.25C4.91,3.35,2,7.28,2,11.8c0,5.62,4.57,10.2,10.2,10.2ZM8.18,4.65c-.03.34-.05.68-.05,1.02,0,5.62,4.57,10.2,10.2,10.2.34,0,.68-.02,1.02-.05-1.42,2.56-4.12,4.18-7.15,4.18-4.52,0-8.2-3.68-8.2-8.2,0-3.03,1.63-5.73,4.18-7.15Z"></path>
                 </svg>
             <!-- {/if} -->
-            </button>
+        </button>
     </div>
 </nav>
