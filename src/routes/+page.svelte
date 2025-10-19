@@ -1,10 +1,10 @@
 <head>
     <title>Etash Jhanji</title>
     <meta property="og:title" content="Etash Jhanji" />
-    <meta property="og:description" content="" />
-    <meta property="og:image" content="" />
+    <meta property="og:description" content="CS @ CMU" />
+    <meta property="og:image" content="$lib/assets/fuecoco.png" />
     <meta property="og:url" content="http://etashj.github.io/" />
-    <meta property="og:logo" content="" />
+    <meta property="og:logo" content="$lib/assets/fuecoco.png" />
     <meta property="og:type" content="website" />
 </head>
 
