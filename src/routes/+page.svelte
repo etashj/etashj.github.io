@@ -2,16 +2,6 @@
     import AsciiModel from "$lib/scripts/AsciiModel.svelte";
 </script>
 
-<head>
-    <title>etash jhanji</title>
-    <meta property="og:title" content="etash jhanji" />
-    <meta property="og:description" content="cs @ cmu" />
-    <meta property="og:image" content="$lib/assets/fuecoco.png" />
-    <meta property="og:url" content="http://etashj.github.io/" />
-    <meta property="og:logo" content="$lib/assets/fuecoco.png" />
-    <meta property="og:type" content="website" />
-</head>
-
 
     <div class="backdrop-blur-sm z-10">
         <div class="text-6xl xs:text-7xl">
