@@ -1,3 +1,13 @@
+<head>
+    <title>Etash Jhanji</title>
+    <meta property="og:title" content="Etash Jhanji" />
+    <meta property="og:description" content="" />
+    <meta property="og:image" content="" />
+    <meta property="og:url" content="http://etashj.github.io/" />
+    <meta property="og:logo" content="" />
+    <meta property="og:type" content="website" />
+</head>
+
 <div class="w-full min-h-full h-full dark:bg-black dark:text-white p-16 flex-grow flex flex-col justify-center">
     <div class="backdrop-blur-sm z-10">
         <div class="text-6xl xs:text-7xl">
