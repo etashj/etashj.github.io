@@ -115,7 +115,7 @@
     // 7. --- ASCII Effect Setup (Overlay Method) ---
     effect = new AsciiEffect(renderer, ' .:-+*=%@#', { invert: false });
     effect.setSize(container.clientWidth, container.clientHeight);
-    effect.domElement.style.color = 'black';
+    // effect.domElement.style.color = 'black'; // Color is now set dynamically
     effect.domElement.style.backgroundColor = 'transparent';
     effect.domElement.style.position = 'absolute';
     effect.domElement.style.top = '0';
@@ -135,6 +135,23 @@
     // Append both to the container
     container.appendChild(renderer.domElement);
     container.appendChild(effect.domElement);
+
+    // --- Dark Mode Color Sync ---
+    const updateAsciiColor = () => {
+        if (!effect) return;
+        const isDarkMode = document.documentElement.classList.contains('dark');
+        effect.domElement.style.color = isDarkMode ? 'white' : 'black';
+    };
+
+    // Create an observer to watch for class changes on the <html> tag
+    const observer = new MutationObserver(updateAsciiColor);
+    observer.observe(document.documentElement, {
+        attributes: true,
+        attributeFilter: ['class']
+    });
+
+    // Set the initial color when the component mounts
+    updateAsciiColor();
 
     // 8. --- Animation Loop ---
     const animate = () => {
@@ -165,6 +182,7 @@
         cancelAnimationFrame(animationFrameId);
         window.removeEventListener('resize', onWindowResize);
         controls.dispose();
+        observer.disconnect(); // Stop observing when component is destroyed
         
         if (effect && effect.domElement.parentElement === container) {
             container.removeChild(effect.domElement);
