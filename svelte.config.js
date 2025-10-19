@@ -12,7 +12,10 @@ const config = {
 		}),
 		paths: {
 			base: process.argv.includes('dev') ? '' : process.env.BASE_PATH
-		}
+		},
+		alias: {
+			'$models': 'src/lib/assets/models', // Alias for the 'src/components' directory
+		},
 	}
 };
 export default config;

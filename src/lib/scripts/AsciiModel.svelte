@@ -7,7 +7,8 @@
   import type { Scene, PerspectiveCamera, WebGLRenderer, Mesh } from 'three';
 
   // Prop to pass the STL file path, making the component reusable.
-  export let stlPath: string = "src/lib/assets/models/mew.stl";
+  //export let stlPath: string = "src/lib/assets/models/mew.stl";
+  export let stlPath: string = "/models/mew.stl"; // Public path from the 'static' folder
 
   // A reference to the container div for our 3D scene.
   let container: HTMLDivElement;
