@@ -2,6 +2,8 @@
 	import '../app.css';
 	import favicon from '$lib/assets/fuecoco.png';
 	import { onMount } from 'svelte';
+	
+	export const prerender = true;
 
 	let { children } = $props();
 
