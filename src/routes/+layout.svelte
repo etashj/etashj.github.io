@@ -2,6 +2,7 @@
 	import '../app.css';
 	import favicon from '$lib/assets/fuecoco.png';
 	import { onMount } from 'svelte';
+	import { innerWidth } from 'svelte/reactivity/window'
 	
 	export const prerender = true;
 
@@ -21,7 +22,7 @@
 </script>
 
 
-{#if !isMobile}
+{#if (innerWidth && innerWidth.current!>530) || !isMobile}
 	<DesktopNavBar />
 {:else}
 	<MobileNavBar />
