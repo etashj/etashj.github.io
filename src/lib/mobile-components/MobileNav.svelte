@@ -1,8 +1,7 @@
 <script lang='ts'>
     import { page } from '$app/state';
-    // import { afterNavigate } from '$app/navigation';
     import { onMount } from 'svelte';
-    // import { Spring } from 'svelte/motion'; // built-in reactive animation store
+    import { createDropdownMenu, melt } from '@melt-ui/svelte'
 
     // All site routes accessibel by tabs
     const tabs = [
@@ -13,6 +12,11 @@
     ];
     
     let menuBtn: HTMLButtonElement; 
+
+    const {
+        elements: { menu, item, trigger, arrow }
+    } = createDropdownMenu()
+
     let themeBtn: HTMLButtonElement; 
 
     ////// Light and Dark Mode Logic //////
@@ -112,12 +116,29 @@
         
         <div class="relative flex flex-row content-center rounded-full gap-2 ">
             <!-- svelte-ignore a11y_consider_explicit_label -->
-            <button bind:this={menuBtn} class="bg-black/10 dark:bg-white/7.5 dark:text-white px-3 py-1.5 rounded-full transition duration-300 hover:scale-90 active:scale-75">
+            <button use:melt={$trigger} bind:this={menuBtn} class="bg-black/10 dark:bg-white/7.5 dark:text-white px-3 py-1.5 rounded-full transition duration-300 hover:scale-90 active:scale-75">
                 <svg  xmlns="http://www.w3.org/2000/svg" width="24" height="24"  
                     fill="currentColor" viewBox="0 0 24 24" >
                     <path d="m12,2C6.49,2,2,6.49,2,12s4.49,10,10,10,10-4.49,10-10S17.51,2,12,2Zm0,18c-4.41,0-8-3.59-8-8S7.59,4,12,4s8,3.59,8,8-3.59,8-8,8Z"></path><path d="M12 10.5A1.5 1.5 0 1 0 12 13.5 1.5 1.5 0 1 0 12 10.5z"></path><path d="M16.5 10.5A1.5 1.5 0 1 0 16.5 13.5 1.5 1.5 0 1 0 16.5 10.5z"></path><path d="M7.5 10.5A1.5 1.5 0 1 0 7.5 13.5 1.5 1.5 0 1 0 7.5 10.5z"></path>
                     </svg>
             </button>
+
+            <div use:melt={$menu} class="backdrop-blur-sm bg-black/5 dark:bg-white/10 rounded-3xl gap-4 p-2 ">
+                {#each tabs as tab}
+                    <a href={tab.path}>
+                        {#if tab.path === page.url.pathname}
+                        <div use:melt={$item} class="text-center text-white dark:text-black bg-black dark:bg-white px-3 py-1 rounded-full transition duration-300 hover:scale-105 active:scale-90">
+                            {tab.id}
+                        </div>
+                        {:else}
+                        <div use:melt={$item} class="text-center dark:text-white hover:bg-black/10 hover:dark:bg-white/15 px-3 py-1 rounded-full transition duration-300 hover:scale-105 active:scale-90">
+                            {tab.id}
+                        </div>
+                        {/if}
+                    </a>
+                {/each}
+                <!-- <div use:melt={$arrow}></div> -->
+            </div>
 
             <button bind:this={themeBtn} class="bg-black/10 dark:bg-white/7.5 dark:text-white px-3 py-1.5 rounded-full transition duration-300 hover:scale-90 active:scale-75">
                 <!-- {#if themeDisplay()==="Dark"}
