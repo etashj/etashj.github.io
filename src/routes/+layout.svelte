@@ -38,6 +38,6 @@
 
 </svelte:head>
 
-<div class="w-full min-h-full h-full dark:bg-black dark:text-white p-16 flex-grow flex flex-col justify-center">
+<div class="w-full min-h-full h-full dark:bg-black dark:text-white p-16 flex-grow flex flex-col justify-center items-start">
 	{@render children?.()}
 </div>

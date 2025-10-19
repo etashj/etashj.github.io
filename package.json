@@ -26,6 +26,7 @@
 		"@tailwindcss/typography": "^0.5.18",
 		"@tailwindcss/vite": "^4.1.13",
 		"@types/node": "^22",
+		"@types/three": "^0.180.0",
 		"@vitest/browser": "^3.2.4",
 		"eslint": "^9.36.0",
 		"eslint-config-prettier": "^10.1.8",
@@ -43,5 +44,8 @@
 		"vite": "^7.1.7",
 		"vitest": "^3.2.4",
 		"vitest-browser-svelte": "^1.1.0"
+	},
+	"dependencies": {
+		"three": "^0.180.0"
 	}
 }
