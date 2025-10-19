@@ -14,7 +14,7 @@
             Etash Jhanji
         </div>
         <div class="xs:text-2xl">
-            इताश झांजी
+            इताश झांजी • CS @ CMU
         </div>
         <p class="text-sm xs:text-base">+ <a href="mailto:etash@cmu.edu">etash@cmu.edu</a></p>
         <p class="text-sm xs:text-base">+ <a href="https://linkedin.com/in/etashj">linkedin.com/etashj</a></p>
