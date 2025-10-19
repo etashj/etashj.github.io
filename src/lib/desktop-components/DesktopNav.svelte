@@ -153,7 +153,7 @@
         <div bind:this={biggie} class="relative flex flex-row content-center rounded-full ">
             <!-- Floating highlight -->
             <div
-                class="absolute top-2 bottom-2 bg-black dark:bg-white rounded-full pointer-events-none z-0"
+                class="absolute top-2 bottom-2 bg-black dark:bg-white dark:text-black rounded-full pointer-events-none z-0"
                 style="
                     transform: translateX({highlightX.current}px);
                     top: 0px; 
