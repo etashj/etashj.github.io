@@ -74,7 +74,7 @@
         // 1. Center the geometry's pivot point
         geometry.computeBoundingBox();
         const center = new THREE.Vector3();
-        geometry!.boundingBox.getCenter(center);
+        geometry.boundingBox!.getCenter(center);
         model.position.sub(center);
 
         // 2. Use a Box3 to get the model's current world-space bounding box
