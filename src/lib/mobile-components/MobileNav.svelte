@@ -119,7 +119,7 @@
     }
 </script>
 
-<nav class="w-screen flex flex-row content-center py-0">
+<nav class="w-screen flex flex-row content-center py-0 fixed z-50">
     <div class="w-screen mx-8 my-8 flex flex-row content-center bg-black/5 dark:bg-white/10 rounded-full gap-4 p-2 justify-between">
         <button bind:this={nameBtn} class="bg-black/10 dark:bg-white/7.5 dark:text-white px-3 py-1.5 rounded-full transition duration-300 hover:scale-90 active:scale-75" onclick={toggleName}>etash jhanji</button>
         
