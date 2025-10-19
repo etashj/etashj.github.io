@@ -132,7 +132,7 @@
                     </svg>
             </button>
 
-            <div use:melt={$menu} class="backdrop-blur-sm bg-black/5 dark:bg-white/10 rounded-3xl gap-4 p-2 ">
+            <div use:melt={$menu} class="z-60 backdrop-blur-sm bg-black/5 dark:bg-white/10 rounded-3xl gap-4 p-2 ">
                 {#each tabs as tab}
                     <a href={tab.path}>
                         {#if tab.path === page.url.pathname}
