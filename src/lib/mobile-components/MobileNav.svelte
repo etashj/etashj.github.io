@@ -108,11 +108,20 @@
         mq.addEventListener("change", systemChange);
     });
 
+    ////// Name Switcher Logic ///////
+    let nameBtn: HTMLButtonElement; 
+    function toggleName() {
+        if (nameBtn.innerHTML === 'etash jhanji') {
+            nameBtn.innerHTML = "इताश झांजी"; 
+        } else {
+            nameBtn.innerHTML = "etash jhanji"; 
+        }
+    }
 </script>
 
 <nav class="w-screen flex flex-row content-center py-0">
     <div class="w-screen mx-8 my-8 flex flex-row content-center bg-black/5 dark:bg-white/10 rounded-full gap-4 p-2 justify-between">
-        <button class="bg-black/10 dark:bg-white/7.5 dark:text-white px-3 py-1.5 rounded-full transition duration-300 hover:scale-90 active:scale-75">etash jhanji</button>
+        <button bind:this={nameBtn} class="bg-black/10 dark:bg-white/7.5 dark:text-white px-3 py-1.5 rounded-full transition duration-300 hover:scale-90 active:scale-75" onclick={toggleName}>etash jhanji</button>
         
         <div class="relative flex flex-row content-center rounded-full gap-2 ">
             <!-- svelte-ignore a11y_consider_explicit_label -->
