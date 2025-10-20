@@ -1,6 +1,27 @@
 <script lang="ts">
     import AsciiModel from "$lib/components/AsciiModel.svelte";
     import { isHindi } from '$lib/scripts/language';
+    import { onMount } from 'svelte';
+
+    let modelPath: string | null = null;
+
+    onMount(async () => {
+        try {
+            const response = await fetch('/models.json');
+            if (!response.ok) {
+                throw new Error('Network response was not ok');
+            }
+            const models: string[] = await response.json();
+            if (models.length > 0) {
+                const randomModel = models[Math.floor(Math.random() * models.length)];
+                modelPath = `/models/${randomModel}`;
+            }
+        } catch (error) {
+            console.error("Failed to fetch or process models.json:", error);
+            // As a fallback, you could load a default model here
+            // modelPath = '/models/mew.stl';
+        }
+    });
 </script>
 
 
@@ -33,4 +54,8 @@
             resume  <div class="group-hover:translate-x-0.5 transition duration-150">→</div>
         </div></a>
     </div>
-    <AsciiModel />
+    {#if modelPath}
+        <AsciiModel stlPath={modelPath} />
+    {:else}
+        <!-- Optional: show a placeholder or nothing while loading -->
+    {/if}

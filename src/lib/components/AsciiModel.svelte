@@ -5,6 +5,7 @@
   import { OrbitControls } from 'three/addons/controls/OrbitControls.js';
   import { AsciiEffect } from 'three/addons/effects/AsciiEffect.js';
   import type { Scene, PerspectiveCamera, WebGLRenderer, Mesh } from 'three';
+  import ModelLabel from './ModelLabel.svelte';
 
   // Prop to pass the STL file path, making the component reusable.
   //export let stlPath: string = "src/lib/assets/models/mew.stl";
@@ -206,5 +207,7 @@
 </script>
 
 <!-- The container needs a position style for the absolute positioning of its children to work -->
-<div bind:this={container} class="w-full h-full translate-x-20 translate-y-8 bottom-2" style="position: fixed;"></div>
+<div bind:this={container} class="w-full h-full translate-x-20 translate-y-8 bottom-2" style="position: fixed;">
+</div>
+<ModelLabel path={stlPath} />
 
