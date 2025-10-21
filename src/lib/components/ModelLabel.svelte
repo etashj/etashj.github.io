@@ -11,7 +11,7 @@
 </script>
 
 {#if name && path}
-    <div class="text-xs fixed bottom-4 right-4 z-20 w-fit text-center dark:text-white text-black bg-black/5 dark:bg-white/15 bg-black-5 px-3 py-2 rounded-lg transition duration-300 hover:scale-105 active:scale-95 shadow-lg">
+    <div class="text-xs fixed bottom-6 right-6 z-20 w-fit text-center dark:text-white text-black bg-black/5 dark:bg-white/15 bg-black-5 px-3 py-2 rounded-2xl transition duration-300 hover:scale-105 active:scale-95 shadow-lg">
         <div>
             You're looking at 
             <a
