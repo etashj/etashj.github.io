@@ -23,6 +23,6 @@
                 {name}
             </a>
         </div>
-        <div class="text-gray-600 dark:text-gray-400">Drag on the model to move it</div>
+        <div class="text-gray-600 dark:text-gray-400">Drag the model to move it</div>
     </div>
 {/if}
