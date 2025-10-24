@@ -1,14 +1,39 @@
 <script lang="ts">
     import { isHindi } from '$lib/scripts/language';
+    import { createTooltip, melt } from '@melt-ui/svelte';
+	import { fade } from 'svelte/transition';
+
+    const {
+        elements: { trigger, content, arrow },
+        states: { open },
+    } = createTooltip({
+        positioning: {
+        placement: 'top',
+        },
+        openDelay: 0,
+        closeDelay: 0,
+        closeOnPointerDown: false,
+        forceVisible: true,
+    });
 </script>
-<div class="z-10 rounded-2xl p-4 max-w-full">
-        <div class="text-6xl xs:text-7xl">
+<div class="z-10 rounded-2xl p-4 max-w-full" >
+        <div class="text-6xl xs:text-7xl w-fit max-w-fit " use:melt={$trigger}>
             {#if $isHindi}
                 इताश झांजी
             {:else}
                 etash jhanji
             {/if}
         </div>
+        {#if $open}
+        <div
+            use:melt={$content}
+            transition:fade={{ duration: 100 }}
+            class=" z-110 rounded-lg bg-black dark:bg-white shadow text-white dark:text-black "
+        >
+            <div use:melt={$arrow} ></div>
+            <p class="px-4 py-1 font-mono text-lg">[it̪ɑːɕ ɟʰɑːⁿɟiː]</p>
+        </div>
+        {/if}
         <div class="xs:text-2xl mt-2">
             Hi I'm {#if $isHindi}इताश{:else}Etash{/if}. I'm an undergradate studying computer science at Carnegie Mellon University. 
         </div>
