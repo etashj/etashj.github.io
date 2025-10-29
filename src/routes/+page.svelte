@@ -19,6 +19,9 @@
     });
 
     let modelPath: string | null = null;
+    import { page } from '$app/state';
+    // Access query parameters
+    $: model = page.url.searchParams.get('model');
 
     onMount(async () => {
         try {
@@ -27,7 +30,10 @@
                 throw new Error('Network response was not ok');
             }
             const models: string[] = await response.json();
-            if (models.length > 0) {
+            if (model !== null && models.includes(model+".stl")) {
+                modelPath = `/models/${model}.stl`;
+            }
+            else if (models.length > 0) {
                 const randomModel = models[Math.floor(Math.random() * models.length)];
                 modelPath = `/models/${randomModel}`;
             }
