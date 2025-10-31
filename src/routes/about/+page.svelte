@@ -71,7 +71,7 @@
         <a href="/ejhanji_resume.pdf" target="_blank" rel="external" class="mb-2 group block w-fit"><div class="flex flex-row gap-1 w-fit text-center dark:text-white text-black bg-black/5 dark:bg-white/15 bg-black-5 px-3 py-1 rounded-full transition duration-300 group-hover:scale-105 group-active:scale-90">
             resume  <div class="group-hover:translate-x-0.5 transition duration-150">→</div>
         </div></a>
-        <a href="/about" target="_blank" class="group block w-fit mb-2"><div class="w-fit max-w-fit flex flex-row gap-1 text-center dark:text-white text-black bg-black/5 dark:bg-white/15 bg-black-5 px-3 py-1 rounded-full transition duration-300 group-hover:scale-105 group-active:scale-90">
+        <a href="/" class="group block w-fit mb-2"><div class="w-fit max-w-fit flex flex-row gap-1 text-center dark:text-white text-black bg-black/5 dark:bg-white/15 bg-black-5 px-3 py-1 rounded-full transition duration-300 group-hover:scale-105 group-active:scale-90">
              <div class="group-hover:-translate-x-0.5 transition duration-150">←</div> back home
         </div></a>
 
