@@ -78,10 +78,10 @@
         <p class="text-sm xs:text-base">+ <a target="_blank" class="underline decoration-dashed" href="https://instagram.com/etashj/">instagram.com/etashj</a></p>
         <br>
        
-        <a href="/about" class="group block w-fit mb-2"><div class="w-fit max-w-fit flex flex-row gap-1 text-center dark:text-white text-black bg-black/5 dark:bg-white/15 bg-black-5 px-3 py-1 rounded-full transition duration-300 group-hover:scale-105 group-active:scale-90">
+        <a href="/about" class="group block w-fit mb-2"><div class="w-fit max-w-fit flex flex-row gap-1 text-center dark:text-white text-black bg-black/5 dark:bg-white/15 bg-black-5 px-3 py-1 rounded-lg transition duration-300 group-hover:scale-105 group-active:scale-90">
             about  <div class="group-hover:translate-x-0.5 transition duration-150">→</div>
         </div></a>
-        <a href="/ejhanji_resume.pdf" target="_blank" rel="external" class="group block w-fit"><div class="flex flex-row gap-1 w-fit text-center dark:text-white text-black bg-black/5 dark:bg-white/15 bg-black-5 px-3 py-1 rounded-full transition duration-300 group-hover:scale-105 group-active:scale-90">
+        <a href="/ejhanji_resume.pdf" target="_blank" rel="external" class="group block w-fit"><div class="flex flex-row gap-1 w-fit text-center dark:text-white text-black bg-black/5 dark:bg-white/15 bg-black-5 px-3 py-1 rounded-lg transition duration-300 group-hover:scale-105 group-active:scale-90">
             resume  <div class="group-hover:translate-x-0.5 transition duration-150">→</div>
         </div></a>
     </div>

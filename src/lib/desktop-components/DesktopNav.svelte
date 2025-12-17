@@ -157,7 +157,7 @@
                     width: {highlightWidth.current}px; 
                     height: {highlightHeight.current}px;
                 "
-            >.</div>
+            ></div>
             {#each tabs as tab}
             <!--class:bg-black={page.url.pathname===tab.path} -->
                 {#if page.url.pathname===tab.path}
