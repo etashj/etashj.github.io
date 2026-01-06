@@ -56,7 +56,7 @@
 				projects. My selected coursework includes 15-122 and 15-151.
 			</p>
 			<pre
-				class="max-w-full overflow-x-auto rounded-lg bg-gray-200/50 p-4 text-sm md:max-w-4/8 dark:bg-gray-800/50"><code
+				class="max-w-full overflow-x-auto rounded-lg p-4 text-sm md:max-w-4/8 dark:bg-gray-800/50"><code
 					><span class="text-blue-600 dark:text-blue-400">major</span>           = <span
 						class="text-green-600 dark:text-green-400">"Computer Science"</span
 					><br /><span class="text-blue-600 dark:text-blue-400">concentrations</span>  = [<span
