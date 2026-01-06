@@ -1,0 +1,15 @@
+{
+  "title": "Exploring and Applying Audio-Based Sentiment Analysis",
+  "date": "2024",
+  "description": "A research project and implementation using PyTorch and RNNs to predict musical emotion based on the circumplex model of affect.",
+  "tags": [
+    "Python",
+    "PyTorch",
+    "Signal Processing",
+    "Machine Learning"
+  ],
+  "links": {
+    "github": "https://github.com/etashj/Exploring-and-Applying-Audio-Based-Sentiment-Analysis",
+    "arxiv": "https://arxiv.org/abs/2403.17379"
+  }
+}

@@ -1,0 +1,15 @@
+{
+  "title": "Multiple Regression & Polynomial Fitting",
+  "date": "2025",
+  "thumbnail": "/images/projects/regression.jpg",
+  "description": "Mathematical exploration and implementation of linear and polynomial regression techniques for data modeling and curve fitting.",
+  "tags": [
+    "Python",
+    "NumPy, MatPlotLib, Pandas",
+    "Linear Algebra",
+    "Data Science"
+  ],
+  "links": {
+    "github": "https://github.com/etashj/Multiple-Regression-and-Polynomial-Fitting"
+  }
+}

@@ -1,0 +1,16 @@
+{
+  "title": "AniMatch",
+  "date": "2025",
+  "featured": true,
+  "thumbnail": "/images/projects/smart-home-thumb.jpg",
+  "description": "A swipe/dating app for anime and manga rec based on the AniList/AniGraph API's recommendations between different titles. Developed with Reach and TailwindCSS fully in NeoVim and deployed on Netlify.",
+  "tags": [
+    "Reach",
+    "TailwindCSS",
+    "GraphQL"
+  ],
+  "links": {
+    "github": "https://github.com/etashj/AniMatch",
+    "demo": "https://ani-match.netlify.app/"
+  }
+}

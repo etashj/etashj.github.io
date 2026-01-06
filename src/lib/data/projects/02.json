@@ -1,0 +1,14 @@
+{
+  "title": "Banana Split",
+  "date": "2025",
+  "thumbnail": "/images/projects/banana-split.jpg",
+  "description": "A split, tented keyboard with columnar staggering. Designed from scratch with ergogen, KiCad, and Fusion 360, and fully open-source. ",
+  "tags": [
+    "PCB Design",
+    "Keyboards",
+    "Engineering"
+  ],
+  "links": {
+    "github": "https://github.com/etashj/banana-split"
+  }
+}
