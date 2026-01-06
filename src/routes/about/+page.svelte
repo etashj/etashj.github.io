@@ -95,10 +95,10 @@
 		<br />
 		<div class="flex min-w-50 flex-col flex-wrap gap-4 md:flex-row">
 			<p class="my-2 max-w-fit text-sm xs:text-base md:max-w-3/8">
-				Currently I'm looking for research experience for fall and spring semester, as well as
-				possible summer positions in industry. I'm most familiar with Python, PyTorch, OpenCV, and
-				Java, but I have a moderate experience in C and Rust. On the other end of the stack I have
-				extensive experiencein frontend with HTML/CSS/JS, React, TailwindCSS, and
+				Currently I'm looking for research experience for the semester, as well as possible summer
+				positions in industry. I'm most familiar with Python, PyTorch, OpenCV, C, and Java, but I
+				have a moderate experience in C++ and Rust. On the other end of the stack I have extensive
+				experience in frontend with HTML/CSS/JS, React, TailwindCSS, and
 			</p>
 			<pre
 				class="max-w-full overflow-x-auto rounded-lg bg-gray-200/50 p-4 text-sm md:max-w-4/8 dark:bg-gray-800/50"><code
@@ -173,6 +173,29 @@
 			resume <div class="transition duration-150 group-hover:translate-x-0.5">→</div>
 		</div></a
 	>
+	<div class="flex flex-row gap-2">
+		<a href={resolve('/projects')} class="group mb-2 block w-fit"
+			><div
+				class="bg-black-5 flex w-fit flex-row gap-1 rounded-lg bg-black/5 px-3 py-1 text-center text-black transition duration-300 group-hover:scale-105 group-active:scale-90 dark:bg-white/15 dark:text-white"
+			>
+				projects <div class="transition duration-150 group-hover:translate-x-0.5">→</div>
+			</div></a
+		>
+		<a href={resolve('/design')} class="group mb-2 block w-fit"
+			><div
+				class="bg-black-5 flex w-fit flex-row gap-1 rounded-lg bg-black/5 px-3 py-1 text-center text-black transition duration-300 group-hover:scale-105 group-active:scale-90 dark:bg-white/15 dark:text-white"
+			>
+				design <div class="transition duration-150 group-hover:translate-x-0.5">→</div>
+			</div></a
+		>
+		<a href={resolve('/blog')} class="group mb-2 block w-fit"
+			><div
+				class="bg-black-5 flex w-fit flex-row gap-1 rounded-lg bg-black/5 px-3 py-1 text-center text-black transition duration-300 group-hover:scale-105 group-active:scale-90 dark:bg-white/15 dark:text-white"
+			>
+				blog <div class="transition duration-150 group-hover:translate-x-0.5">→</div>
+			</div></a
+		>
+	</div>
 	<a href={resolve('/')} class="group mb-2 block w-fit"
 		><div
 			class="bg-black-5 flex w-fit max-w-fit flex-row gap-1 rounded-lg bg-black/5 px-3 py-1 text-center text-black transition duration-300 group-hover:scale-105 group-active:scale-90 dark:bg-white/15 dark:text-white"

@@ -1,164 +1,223 @@
-<script lang='ts'>
-    import { page } from '$app/state';
-    import { onMount } from 'svelte';
-    import { createDropdownMenu, melt } from '@melt-ui/svelte'
-    import { isHindi, toggleHindi } from '$lib/scripts/language';
+<script lang="ts">
+	import { page } from '$app/state';
+	import { onMount } from 'svelte';
+	import { createDropdownMenu, melt } from '@melt-ui/svelte';
+	import { isHindi, toggleHindi } from '$lib/scripts/language';
+	import { resolve } from '$app/paths';
 
-    // All site routes accessibel by tabs
-    const tabs = [
+	// All site routes accessibel by tabs
+	const tabs = [
 		{ id: 'home', path: '/' },
 		{ id: 'about', path: '/about' },
 		{ id: 'projects', path: '/projects' },
-        { id: 'design', path: '/design' },
-    ];
-    
-    let menuBtn: HTMLButtonElement; 
+		{ id: 'design', path: '/design' },
+		{ id: 'blog', path: '/blog' }
+	];
 
-    const {
-        elements: { menu, item, trigger, arrow }
-    } = createDropdownMenu()
+	let menuBtn: HTMLButtonElement;
 
-    let themeBtn: HTMLButtonElement; 
+	const {
+		elements: { menu, item, trigger }
+	} = createDropdownMenu();
 
-    ////// Light and Dark Mode Logic //////
-    type Theme = "System" | "Dark" | "Light";
+	let themeBtn: HTMLButtonElement;
 
-    let theme = $state<Theme>("System"); // default
-    let themeDisplay; 
-    // let themeDisplay = $derived(()=>{return 0;});
-    onMount(() => {
-        // $: themeDisplay = theme==="System" ? (window.matchMedia('(prefers-color-scheme: dark)').matches ? "Dark" : "Light")
-        //                                     : theme; 
-        let themeDisplay = $derived(() => {
-            if (theme === "System") {
-                // if (window.matchMedia('(prefers-color-scheme: dark)').matches) {
-                //     document.documentElement.classList.add("dark"); 
-                // }
-                return window.matchMedia('(prefers-color-scheme: dark)').matches ? "Dark" : "Light";
-            }
-            return theme;
-        });
-        let saved = localStorage.getItem("theme");
-        if (saved===null) saved = "System"; 
-        if (saved && ['System', 'Dark', 'Light'].includes(saved as Theme)) {
-            theme = saved as Theme;
-            if (theme === "Dark" || (theme==="System" && window.matchMedia('(prefers-color-scheme: dark)').matches)) {
-                document.documentElement.classList.add("dark"); 
-                themeBtn.innerHTML = '<svg  xmlns="http://www.w3.org/2000/svg" width="24" height="24"  fill="currentColor" viewBox="0 0 24 24" ><path d="M12 17.01c2.76 0 5.01-2.25 5.01-5.01S14.76 6.99 12 6.99 6.99 9.24 6.99 12s2.25 5.01 5.01 5.01M12 9c1.66 0 3.01 1.35 3.01 3.01s-1.35 3.01-3.01 3.01-3.01-1.35-3.01-3.01S10.34 9 12 9M13 19h-2v3h2v-3M13 2h-2v3h2V2M2 11h3v2H2zM19 11h3v2h-3zM4.22 18.36l.71.71.71.71 1.06-1.06 1.06-1.06-.71-.71-.71-.71-1.06 1.06zM19.78 5.64l-.71-.71-.71-.71-1.06 1.06-1.06 1.06.71.71.71.71 1.06-1.06zM7.76 6.34 6.7 5.28 5.64 4.22l-.71.71-.71.71L5.28 6.7l1.06 1.06.71-.71zM16.24 17.66l1.06 1.06 1.06 1.06.71-.71.71-.71-1.06-1.06-1.06-1.06-.71.71z"></path></svg>';
-            }
-        } else {
-            themeBtn.innerHTML = '<svg  xmlns="http://www.w3.org/2000/svg" width="24" height="24"  fill="currentColor" viewBox="0 0 24 24" ><path d="m12.2,22c4.53,0,8.45-2.91,9.76-7.24.11-.35.01-.74-.25-1-.26-.26-.64-.36-1-.25-.78.23-1.58.35-2.38.35-4.52,0-8.2-3.68-8.2-8.2,0-.8.12-1.6.35-2.38.11-.35.01-.74-.25-1s-.64-.36-1-.25C4.91,3.35,2,7.28,2,11.8c0,5.62,4.57,10.2,10.2,10.2ZM8.18,4.65c-.03.34-.05.68-.05,1.02,0,5.62,4.57,10.2,10.2,10.2.34,0,.68-.02,1.02-.05-1.42,2.56-4.12,4.18-7.15,4.18-4.52,0-8.2-3.68-8.2-8.2,0-3.03,1.63-5.73,4.18-7.15Z"></path></svg>'; 
-            localStorage.setItem("theme", theme);
-        } 
-    });
-    
+	////// Light and Dark Mode Logic //////
+	type Theme = 'System' | 'Dark' | 'Light';
 
-    onMount(() => {
-        let themeDisplay = $derived(() => {
-            if (theme === "System") {
-                // if (window.matchMedia('(prefers-color-scheme: dark)').matches) {
-                //     document.documentElement.classList.add("dark"); 
-                // }
-                return window.matchMedia('(prefers-color-scheme: dark)').matches ? "Dark" : "Light";
-            }
-            return theme;
-        });
-        
-        function toggleTheme() {
-            const html = document.documentElement;
-    
-            if (themeDisplay() === "Dark") {
-                theme = "Light"; 
-                // html.classList.remove("dark");
-            }
-            else if (themeDisplay() === "Light") {
-                theme = "Dark"; 
-                // html.classList.add("dark");
-            }
-            else {
-                theme = window.matchMedia('(prefers-color-scheme: dark)').matches ? "Light" : "Dark";
-            }
-            localStorage.setItem("theme", theme); 
-            html.classList.toggle("dark", themeDisplay() === "Dark");
-            if (themeDisplay() === "Dark") 
-                themeBtn.innerHTML = '<svg  xmlns="http://www.w3.org/2000/svg" width="24" height="24"  fill="currentColor" viewBox="0 0 24 24" ><path d="M12 17.01c2.76 0 5.01-2.25 5.01-5.01S14.76 6.99 12 6.99 6.99 9.24 6.99 12s2.25 5.01 5.01 5.01M12 9c1.66 0 3.01 1.35 3.01 3.01s-1.35 3.01-3.01 3.01-3.01-1.35-3.01-3.01S10.34 9 12 9M13 19h-2v3h2v-3M13 2h-2v3h2V2M2 11h3v2H2zM19 11h3v2h-3zM4.22 18.36l.71.71.71.71 1.06-1.06 1.06-1.06-.71-.71-.71-.71-1.06 1.06zM19.78 5.64l-.71-.71-.71-.71-1.06 1.06-1.06 1.06.71.71.71.71 1.06-1.06zM7.76 6.34 6.7 5.28 5.64 4.22l-.71.71-.71.71L5.28 6.7l1.06 1.06.71-.71zM16.24 17.66l1.06 1.06 1.06 1.06.71-.71.71-.71-1.06-1.06-1.06-1.06-.71.71z"></path></svg>';
-            else 
-                themeBtn.innerHTML = '<svg  xmlns="http://www.w3.org/2000/svg" width="24" height="24"  fill="currentColor" viewBox="0 0 24 24" ><path d="m12.2,22c4.53,0,8.45-2.91,9.76-7.24.11-.35.01-.74-.25-1-.26-.26-.64-.36-1-.25-.78.23-1.58.35-2.38.35-4.52,0-8.2-3.68-8.2-8.2,0-.8.12-1.6.35-2.38.11-.35.01-.74-.25-1s-.64-.36-1-.25C4.91,3.35,2,7.28,2,11.8c0,5.62,4.57,10.2,10.2,10.2ZM8.18,4.65c-.03.34-.05.68-.05,1.02,0,5.62,4.57,10.2,10.2,10.2.34,0,.68-.02,1.02-.05-1.42,2.56-4.12,4.18-7.15,4.18-4.52,0-8.2-3.68-8.2-8.2,0-3.03,1.63-5.73,4.18-7.15Z"></path></svg>'; 
-        }
+	let theme = $state<Theme>('System'); // default
+	// let themeDisplay;
+	// let themeDisplay = $derived(()=>{return 0;});
+	onMount(() => {
+		// $: themeDisplay = theme==="System" ? (window.matchMedia('(prefers-color-scheme: dark)').matches ? "Dark" : "Light")
+		//                                     : theme;
+		// let themeDisplay = $derived(() => {
+		// 	if (theme === 'System') {
+		// 		// if (window.matchMedia('(prefers-color-scheme: dark)').matches) {
+		// 		//     document.documentElement.classList.add("dark");
+		// 		// }
+		// 		return window.matchMedia('(prefers-color-scheme: dark)').matches ? 'Dark' : 'Light';
+		// 	}
+		// 	return theme;
+		// });
+		let saved = localStorage.getItem('theme');
+		if (saved === null) saved = 'System';
+		if (saved && ['System', 'Dark', 'Light'].includes(saved as Theme)) {
+			theme = saved as Theme;
+			if (
+				theme === 'Dark' ||
+				(theme === 'System' && window.matchMedia('(prefers-color-scheme: dark)').matches)
+			) {
+				document.documentElement.classList.add('dark');
+				themeBtn.innerHTML =
+					'<svg  xmlns="http://www.w3.org/2000/svg" width="24" height="24"  fill="currentColor" viewBox="0 0 24 24" ><path d="M12 17.01c2.76 0 5.01-2.25 5.01-5.01S14.76 6.99 12 6.99 6.99 9.24 6.99 12s2.25 5.01 5.01 5.01M12 9c1.66 0 3.01 1.35 3.01 3.01s-1.35 3.01-3.01 3.01-3.01-1.35-3.01-3.01S10.34 9 12 9M13 19h-2v3h2v-3M13 2h-2v3h2V2M2 11h3v2H2zM19 11h3v2h-3zM4.22 18.36l.71.71.71.71 1.06-1.06 1.06-1.06-.71-.71-.71-.71-1.06 1.06zM19.78 5.64l-.71-.71-.71-.71-1.06 1.06-1.06 1.06.71.71.71.71 1.06-1.06zM7.76 6.34 6.7 5.28 5.64 4.22l-.71.71-.71.71L5.28 6.7l1.06 1.06.71-.71zM16.24 17.66l1.06 1.06 1.06 1.06.71-.71.71-.71-1.06-1.06-1.06-1.06-.71.71z"></path></svg>';
+			}
+		} else {
+			themeBtn.innerHTML =
+				'<svg  xmlns="http://www.w3.org/2000/svg" width="24" height="24"  fill="currentColor" viewBox="0 0 24 24" ><path d="m12.2,22c4.53,0,8.45-2.91,9.76-7.24.11-.35.01-.74-.25-1-.26-.26-.64-.36-1-.25-.78.23-1.58.35-2.38.35-4.52,0-8.2-3.68-8.2-8.2,0-.8.12-1.6.35-2.38.11-.35.01-.74-.25-1s-.64-.36-1-.25C4.91,3.35,2,7.28,2,11.8c0,5.62,4.57,10.2,10.2,10.2ZM8.18,4.65c-.03.34-.05.68-.05,1.02,0,5.62,4.57,10.2,10.2,10.2.34,0,.68-.02,1.02-.05-1.42,2.56-4.12,4.18-7.15,4.18-4.52,0-8.2-3.68-8.2-8.2,0-3.03,1.63-5.73,4.18-7.15Z"></path></svg>';
+			localStorage.setItem('theme', theme);
+		}
+	});
 
-        themeBtn.onclick = toggleTheme; 
-    }); 
+	onMount(() => {
+		let themeDisplay = $derived(() => {
+			if (theme === 'System') {
+				// if (window.matchMedia('(prefers-color-scheme: dark)').matches) {
+				//     document.documentElement.classList.add("dark");
+				// }
+				return window.matchMedia('(prefers-color-scheme: dark)').matches ? 'Dark' : 'Light';
+			}
+			return theme;
+		});
 
-    // Listen to system changes
-    onMount(() => {
-        const mq = window.matchMedia('(prefers-color-scheme: dark)');
+		function toggleTheme() {
+			const html = document.documentElement;
 
-        // Update themeDisplay when system preference changes
-        function systemChange(e: MediaQueryListEvent) {
-            if (theme === "System" || !(localStorage.getItem("theme"))) {
-                document.documentElement.classList.toggle("dark", window.matchMedia('(prefers-color-scheme: dark)').matches);
-                theme = window.matchMedia('(prefers-color-scheme: dark)').matches ? "Dark" : "Light"; 
-                if (window.matchMedia('(prefers-color-scheme: dark)').matches) {
-                    themeBtn.innerHTML = '<svg  xmlns="http://www.w3.org/2000/svg" width="24" height="24"  fill="currentColor" viewBox="0 0 24 24" ><path d="M12 17.01c2.76 0 5.01-2.25 5.01-5.01S14.76 6.99 12 6.99 6.99 9.24 6.99 12s2.25 5.01 5.01 5.01M12 9c1.66 0 3.01 1.35 3.01 3.01s-1.35 3.01-3.01 3.01-3.01-1.35-3.01-3.01S10.34 9 12 9M13 19h-2v3h2v-3M13 2h-2v3h2V2M2 11h3v2H2zM19 11h3v2h-3zM4.22 18.36l.71.71.71.71 1.06-1.06 1.06-1.06-.71-.71-.71-.71-1.06 1.06zM19.78 5.64l-.71-.71-.71-.71-1.06 1.06-1.06 1.06.71.71.71.71 1.06-1.06zM7.76 6.34 6.7 5.28 5.64 4.22l-.71.71-.71.71L5.28 6.7l1.06 1.06.71-.71zM16.24 17.66l1.06 1.06 1.06 1.06.71-.71.71-.71-1.06-1.06-1.06-1.06-.71.71z"></path></svg>';
-                } else {
-                    themeBtn.innerHTML = '<svg  xmlns="http://www.w3.org/2000/svg" width="24" height="24"  fill="currentColor" viewBox="0 0 24 24" ><path d="m12.2,22c4.53,0,8.45-2.91,9.76-7.24.11-.35.01-.74-.25-1-.26-.26-.64-.36-1-.25-.78.23-1.58.35-2.38.35-4.52,0-8.2-3.68-8.2-8.2,0-.8.12-1.6.35-2.38.11-.35.01-.74-.25-1s-.64-.36-1-.25C4.91,3.35,2,7.28,2,11.8c0,5.62,4.57,10.2,10.2,10.2ZM8.18,4.65c-.03.34-.05.68-.05,1.02,0,5.62,4.57,10.2,10.2,10.2.34,0,.68-.02,1.02-.05-1.42,2.56-4.12,4.18-7.15,4.18-4.52,0-8.2-3.68-8.2-8.2,0-3.03,1.63-5.73,4.18-7.15Z"></path></svg>'; 
-                }
-            }
-        }
+			if (themeDisplay() === 'Dark') {
+				theme = 'Light';
+				// html.classList.remove("dark");
+			} else if (themeDisplay() === 'Light') {
+				theme = 'Dark';
+				// html.classList.add("dark");
+			} else {
+				theme = window.matchMedia('(prefers-color-scheme: dark)').matches ? 'Light' : 'Dark';
+			}
+			localStorage.setItem('theme', theme);
+			html.classList.toggle('dark', themeDisplay() === 'Dark');
+			if (themeDisplay() === 'Dark')
+				themeBtn.innerHTML =
+					'<svg  xmlns="http://www.w3.org/2000/svg" width="24" height="24"  fill="currentColor" viewBox="0 0 24 24" ><path d="M12 17.01c2.76 0 5.01-2.25 5.01-5.01S14.76 6.99 12 6.99 6.99 9.24 6.99 12s2.25 5.01 5.01 5.01M12 9c1.66 0 3.01 1.35 3.01 3.01s-1.35 3.01-3.01 3.01-3.01-1.35-3.01-3.01S10.34 9 12 9M13 19h-2v3h2v-3M13 2h-2v3h2V2M2 11h3v2H2zM19 11h3v2h-3zM4.22 18.36l.71.71.71.71 1.06-1.06 1.06-1.06-.71-.71-.71-.71-1.06 1.06zM19.78 5.64l-.71-.71-.71-.71-1.06 1.06-1.06 1.06.71.71.71.71 1.06-1.06zM7.76 6.34 6.7 5.28 5.64 4.22l-.71.71-.71.71L5.28 6.7l1.06 1.06.71-.71zM16.24 17.66l1.06 1.06 1.06 1.06.71-.71.71-.71-1.06-1.06-1.06-1.06-.71.71z"></path></svg>';
+			else
+				themeBtn.innerHTML =
+					'<svg  xmlns="http://www.w3.org/2000/svg" width="24" height="24"  fill="currentColor" viewBox="0 0 24 24" ><path d="m12.2,22c4.53,0,8.45-2.91,9.76-7.24.11-.35.01-.74-.25-1-.26-.26-.64-.36-1-.25-.78.23-1.58.35-2.38.35-4.52,0-8.2-3.68-8.2-8.2,0-.8.12-1.6.35-2.38.11-.35.01-.74-.25-1s-.64-.36-1-.25C4.91,3.35,2,7.28,2,11.8c0,5.62,4.57,10.2,10.2,10.2ZM8.18,4.65c-.03.34-.05.68-.05,1.02,0,5.62,4.57,10.2,10.2,10.2.34,0,.68-.02,1.02-.05-1.42,2.56-4.12,4.18-7.15,4.18-4.52,0-8.2-3.68-8.2-8.2,0-3.03,1.63-5.73,4.18-7.15Z"></path></svg>';
+		}
 
-        mq.addEventListener("change", systemChange);
-    });
+		themeBtn.onclick = toggleTheme;
+	});
+
+	// Listen to system changes
+	onMount(() => {
+		const mq = window.matchMedia('(prefers-color-scheme: dark)');
+
+		// Update themeDisplay when system preference changes
+		function systemChange(e: MediaQueryListEvent) {
+			if (theme === 'System' || !localStorage.getItem('theme')) {
+				document.documentElement.classList.toggle(
+					'dark',
+					window.matchMedia('(prefers-color-scheme: dark)').matches
+				);
+				theme = window.matchMedia('(prefers-color-scheme: dark)').matches ? 'Dark' : 'Light';
+				if (window.matchMedia('(prefers-color-scheme: dark)').matches) {
+					themeBtn.innerHTML =
+						'<svg  xmlns="http://www.w3.org/2000/svg" width="24" height="24"  fill="currentColor" viewBox="0 0 24 24" ><path d="M12 17.01c2.76 0 5.01-2.25 5.01-5.01S14.76 6.99 12 6.99 6.99 9.24 6.99 12s2.25 5.01 5.01 5.01M12 9c1.66 0 3.01 1.35 3.01 3.01s-1.35 3.01-3.01 3.01-3.01-1.35-3.01-3.01S10.34 9 12 9M13 19h-2v3h2v-3M13 2h-2v3h2V2M2 11h3v2H2zM19 11h3v2h-3zM4.22 18.36l.71.71.71.71 1.06-1.06 1.06-1.06-.71-.71-.71-.71-1.06 1.06zM19.78 5.64l-.71-.71-.71-.71-1.06 1.06-1.06 1.06.71.71.71.71 1.06-1.06zM7.76 6.34 6.7 5.28 5.64 4.22l-.71.71-.71.71L5.28 6.7l1.06 1.06.71-.71zM16.24 17.66l1.06 1.06 1.06 1.06.71-.71.71-.71-1.06-1.06-1.06-1.06-.71.71z"></path></svg>';
+				} else {
+					themeBtn.innerHTML =
+						'<svg  xmlns="http://www.w3.org/2000/svg" width="24" height="24"  fill="currentColor" viewBox="0 0 24 24" ><path d="m12.2,22c4.53,0,8.45-2.91,9.76-7.24.11-.35.01-.74-.25-1-.26-.26-.64-.36-1-.25-.78.23-1.58.35-2.38.35-4.52,0-8.2-3.68-8.2-8.2,0-.8.12-1.6.35-2.38.11-.35.01-.74-.25-1s-.64-.36-1-.25C4.91,3.35,2,7.28,2,11.8c0,5.62,4.57,10.2,10.2,10.2ZM8.18,4.65c-.03.34-.05.68-.05,1.02,0,5.62,4.57,10.2,10.2,10.2.34,0,.68-.02,1.02-.05-1.42,2.56-4.12,4.18-7.15,4.18-4.52,0-8.2-3.68-8.2-8.2,0-3.03,1.63-5.73,4.18-7.15Z"></path></svg>';
+				}
+			}
+		}
+
+		mq.addEventListener('change', systemChange);
+	});
 </script>
 
-<nav class="w-screen flex flex-row content-center py-0 fixed z-50">
-    <div class="w-screen mx-8 my-8 flex flex-row content-center bg-black/5 dark:bg-white/10 rounded-full gap-4 p-2 justify-between">
-        <button onclick={toggleHindi} class="bg-black/10 dark:bg-white/7.5 dark:text-white px-3 py-1.5 rounded-full transition duration-300 hover:scale-90 active:scale-75">
-            {#if $isHindi}
-                इताश झांजी
-            {:else}
-                etash jhanji
-            {/if}
-        </button>
-        
-        <div class="relative flex flex-row content-center rounded-full gap-2 ">
-            <!-- svelte-ignore a11y_consider_explicit_label -->
-            <button use:melt={$trigger} bind:this={menuBtn} class="bg-black/10 dark:bg-white/7.5 dark:text-white px-3 py-1.5 rounded-full transition duration-300 hover:scale-90 active:scale-75">
-                <svg  xmlns="http://www.w3.org/2000/svg" width="24" height="24"  
-                    fill="currentColor" viewBox="0 0 24 24" >
-                    <path d="m12,2C6.49,2,2,6.49,2,12s4.49,10,10,10,10-4.49,10-10S17.51,2,12,2Zm0,18c-4.41,0-8-3.59-8-8S7.59,4,12,4s8,3.59,8,8-3.59,8-8,8Z"></path><path d="M12 10.5A1.5 1.5 0 1 0 12 13.5 1.5 1.5 0 1 0 12 10.5z"></path><path d="M16.5 10.5A1.5 1.5 0 1 0 16.5 13.5 1.5 1.5 0 1 0 16.5 10.5z"></path><path d="M7.5 10.5A1.5 1.5 0 1 0 7.5 13.5 1.5 1.5 0 1 0 7.5 10.5z"></path>
-                    </svg>
-            </button>
+<nav class="fixed z-50 flex w-screen flex-row content-center py-0">
+	<div
+		class="mx-8 my-8 flex w-screen flex-row content-center justify-between gap-4 rounded-full bg-black/5 p-2 dark:bg-white/10"
+	>
+		<button
+			onclick={toggleHindi}
+			class="rounded-full bg-black/10 px-3 py-1.5 transition duration-300 hover:scale-90 active:scale-75 dark:bg-white/7.5 dark:text-white"
+		>
+			{#if $isHindi}
+				इताश झांजी
+			{:else}
+				etash jhanji
+			{/if}
+		</button>
 
-            <div use:melt={$menu} class="z-60 backdrop-blur-sm bg-black/5 dark:bg-white/10 rounded-3xl gap-4 p-2 ">
-                {#each tabs as tab}
-                    <a href={tab.path}>
-                        {#if tab.path === page.url.pathname}
-                        <div use:melt={$item} class="text-center text-white dark:text-black bg-black dark:bg-white px-3 py-1 rounded-full transition duration-300 hover:scale-105 active:scale-90">
-                            {tab.id}
-                        </div>
-                        {:else}
-                        <div use:melt={$item} class="text-center dark:text-white hover:bg-black/10 hover:dark:bg-white/15 px-3 py-1 rounded-full transition duration-300 hover:scale-105 active:scale-90">
-                            {tab.id}
-                        </div>
-                        {/if}
-                    </a>
-                {/each}
-                <!-- <div use:melt={$arrow}></div> -->
-            </div>
+		<div class="relative flex flex-row content-center gap-2 rounded-full">
+			<!-- svelte-ignore a11y_consider_explicit_label -->
+			<button
+				use:melt={$trigger}
+				bind:this={menuBtn}
+				class="rounded-full bg-black/10 px-3 py-1.5 transition duration-300 hover:scale-90 active:scale-75 dark:bg-white/7.5 dark:text-white"
+			>
+				<svg
+					xmlns="http://www.w3.org/2000/svg"
+					width="24"
+					height="24"
+					fill="currentColor"
+					viewBox="0 0 24 24"
+				>
+					<path
+						d="m12,2C6.49,2,2,6.49,2,12s4.49,10,10,10,10-4.49,10-10S17.51,2,12,2Zm0,18c-4.41,0-8-3.59-8-8S7.59,4,12,4s8,3.59,8,8-3.59,8-8,8Z"
+					></path><path d="M12 10.5A1.5 1.5 0 1 0 12 13.5 1.5 1.5 0 1 0 12 10.5z"></path><path
+						d="M16.5 10.5A1.5 1.5 0 1 0 16.5 13.5 1.5 1.5 0 1 0 16.5 10.5z"
+					></path><path d="M7.5 10.5A1.5 1.5 0 1 0 7.5 13.5 1.5 1.5 0 1 0 7.5 10.5z"></path>
+				</svg>
+			</button>
 
-            <button bind:this={themeBtn} class="bg-black/10 dark:bg-white/7.5 dark:text-white px-3 py-1.5 rounded-full transition duration-300 hover:scale-90 active:scale-75">
-                <!-- {#if themeDisplay()==="Dark"}
-                <svg  xmlns="http://www.w3.org/2000/svg" width="24" height="24"  
+			<div
+				use:melt={$menu}
+				class="z-60 gap-4 rounded-3xl bg-black/5 p-2 backdrop-blur-sm dark:bg-white/10"
+			>
+				{#each tabs as tab (tab.id)}
+					<a
+						href={resolve(
+							tab.path as
+								| '/'
+								| '/about'
+								| '/projects'
+								| '/design'
+								| '/about/'
+								| '/design/'
+								| '/projects/'
+						)}
+					>
+						{#if tab.path === page.url.pathname}
+							<div
+								use:melt={$item}
+								class="rounded-full bg-black px-3 py-1 text-center text-white transition duration-300 hover:scale-105 active:scale-90 dark:bg-white dark:text-black"
+							>
+								{tab.id}
+							</div>
+						{:else}
+							<div
+								use:melt={$item}
+								class="rounded-full px-3 py-1 text-center transition duration-300 hover:scale-105 hover:bg-black/10 active:scale-90 dark:text-white hover:dark:bg-white/15"
+							>
+								{tab.id}
+							</div>
+						{/if}
+					</a>
+				{/each}
+				<!-- <div use:melt={$arrow}></div> -->
+			</div>
+
+			<button
+				bind:this={themeBtn}
+				class="rounded-full bg-black/10 px-3 py-1.5 transition duration-300 hover:scale-90 active:scale-75 dark:bg-white/7.5 dark:text-white"
+			>
+				<!-- {#if themeDisplay()==="Dark"}
+                <svg  xmlns="http://www.w3.org/2000/svg" width="24" height="24"
                     fill="currentColor" viewBox="0 0 24 24" >
                     <path d="M12 17.01c2.76 0 5.01-2.25 5.01-5.01S14.76 6.99 12 6.99 6.99 9.24 6.99 12s2.25 5.01 5.01 5.01M12 9c1.66 0 3.01 1.35 3.01 3.01s-1.35 3.01-3.01 3.01-3.01-1.35-3.01-3.01S10.34 9 12 9M13 19h-2v3h2v-3M13 2h-2v3h2V2M2 11h3v2H2zM19 11h3v2h-3zM4.22 18.36l.71.71.71.71 1.06-1.06 1.06-1.06-.71-.71-.71-.71-1.06 1.06zM19.78 5.64l-.71-.71-.71-.71-1.06 1.06-1.06 1.06.71.71.71.71 1.06-1.06zM7.76 6.34 6.7 5.28 5.64 4.22l-.71.71-.71.71L5.28 6.7l1.06 1.06.71-.71zM16.24 17.66l1.06 1.06 1.06 1.06.71-.71.71-.71-1.06-1.06-1.06-1.06-.71.71z"></path>
                     </svg>
                 {:else} -->
-                <svg  xmlns="http://www.w3.org/2000/svg" width="24" height="24"  
-                    fill="currentColor" viewBox="0 0 24 24" >
-                    <path d="m12.2,22c4.53,0,8.45-2.91,9.76-7.24.11-.35.01-.74-.25-1-.26-.26-.64-.36-1-.25-.78.23-1.58.35-2.38.35-4.52,0-8.2-3.68-8.2-8.2,0-.8.12-1.6.35-2.38.11-.35.01-.74-.25-1s-.64-.36-1-.25C4.91,3.35,2,7.28,2,11.8c0,5.62,4.57,10.2,10.2,10.2ZM8.18,4.65c-.03.34-.05.68-.05,1.02,0,5.62,4.57,10.2,10.2,10.2.34,0,.68-.02,1.02-.05-1.42,2.56-4.12,4.18-7.15,4.18-4.52,0-8.2-3.68-8.2-8.2,0-3.03,1.63-5.73,4.18-7.15Z"></path>
-                    </svg>
-                <!-- {/if} -->
-            </button>
-        </div>
-    </div>
+				<svg
+					xmlns="http://www.w3.org/2000/svg"
+					width="24"
+					height="24"
+					fill="currentColor"
+					viewBox="0 0 24 24"
+				>
+					<path
+						d="m12.2,22c4.53,0,8.45-2.91,9.76-7.24.11-.35.01-.74-.25-1-.26-.26-.64-.36-1-.25-.78.23-1.58.35-2.38.35-4.52,0-8.2-3.68-8.2-8.2,0-.8.12-1.6.35-2.38.11-.35.01-.74-.25-1s-.64-.36-1-.25C4.91,3.35,2,7.28,2,11.8c0,5.62,4.57,10.2,10.2,10.2ZM8.18,4.65c-.03.34-.05.68-.05,1.02,0,5.62,4.57,10.2,10.2,10.2.34,0,.68-.02,1.02-.05-1.42,2.56-4.12,4.18-7.15,4.18-4.52,0-8.2-3.68-8.2-8.2,0-3.03,1.63-5.73,4.18-7.15Z"
+					></path>
+				</svg>
+				<!-- {/if} -->
+			</button>
+		</div>
+	</div>
 </nav>
