@@ -1,8 +1,7 @@
 export interface Project {
   title: string;
   date: string;
-  featured: boolean;
-  thumbnail: string;
+  thumbnail?: string;
   description: string;
   tags: string[];
 
