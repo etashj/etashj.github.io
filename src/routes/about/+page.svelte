@@ -98,7 +98,7 @@
 				Currently I'm looking for research experience for the semester, as well as possible summer
 				positions in industry. I'm most familiar with Python, PyTorch, OpenCV, C, and Java, but I
 				have a moderate experience in C++ and Rust. On the other end of the stack I have extensive
-				experience in frontend with HTML/CSS/JS, React, TailwindCSS, and
+				experience in frontend with HTML/CSS/JS, React, TailwindCSS, and Svelte.
 			</p>
 			<pre
 				class="max-w-full overflow-x-auto rounded-lg bg-gray-200/50 p-4 text-sm md:max-w-4/8 dark:bg-gray-800/50"><code
