@@ -1,0 +1,15 @@
+{
+  "title": "MangaPark Downloader",
+  "date": "2024",
+  "thumbnail": "/images/projects/mangapark.jpg",
+  "description": "A command-line downloader for MangaPark, allowing users to archive chapters locally with ease. Available on PyPI.",
+  "tags": [
+    "Python",
+    "Web Scraping",
+    "CLI"
+  ],
+  "links": {
+    "github": "https://github.com/etashj/mangapark-dl",
+    "demo": "https://pypi.org/project/mangapark-dl/"
+  }
+}
