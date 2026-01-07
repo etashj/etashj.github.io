@@ -40,7 +40,9 @@
 	}
 </script>
 
-<div class="max-5 mb-10 flex w-full flex-col content-center items-center justify-center gap-10">
+<div
+	class="max-5 mt-10 mb-10 flex w-full flex-col content-center items-center justify-center gap-10"
+>
 	{#each posts as project (project.title)}
 		<div
 			use:glassTilt
