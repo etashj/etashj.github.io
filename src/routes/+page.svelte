@@ -21,14 +21,14 @@
 
 	let modelPath: string | null = null;
 	import { page } from '$app/state';
-	// Access query parameters
-	const model = page.url.searchParams.get('model');
 
 	// if (model!==null && model.substring(model.length-4) === '.stl') {
 	// 	modelPath = `/models/${model}`;
 	// }
 
 	onMount(async () => {
+		// Access query parameters
+		const model = page.url.searchParams.get('model');
 		try {
 			const response = await fetch('/models.json');
 			if (!response.ok) {
