@@ -25,7 +25,7 @@ I wanted something minimal, and I had just seen two examples of ascii rendering 
 ### about page
 It's kind of hard to make an about page interesting, but I also wanted to have a tl;dr version of the yap I have on the main page. Essentially I created these codeblocks to showcase each paragraphs details. The syntax highlighitng is manual 🥀 becasue I didn't foresee how annoying it would be to so it (I ended up adding syntax highlighitng anyway for these blogs). 
 
-We have a big gap right here because fall break ended and I picked up development after winter break. 
+We have a big gap right here because fall break ended and I picked up development after winter break. I also switched from VSCode to [Zed](https://zed.dev). 
 
 ### projects page 
 It's also hard to make a projects page interesting. I didn't want to break minimalism so I intentionally didn't include any images. I also decided to go for a glass kind of look to add some depth (and because my first iteration didn't look good at all). This was kind of annoying to animate with the tilt and light, but all in all not too bad. The projects are stored in json files and numbered in reverse order in the `$lib/data/projects` directory, so I can add and remove them as I like. 
