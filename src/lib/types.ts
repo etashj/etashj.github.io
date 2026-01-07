@@ -19,4 +19,5 @@ export interface Post {
   date: string;
   description?: string;
   // Add any other frontmatter fields here
+  slig: string;
 }
