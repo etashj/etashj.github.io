@@ -1,6 +1,6 @@
 <script lang="ts">
 	import '../app.css';
-	import favicon from '$lib/assets/fuecoco.png';
+	// import favicon from '$lib/assets/fuecoco.png';
 	import { onMount } from 'svelte';
 	import { innerWidth } from 'svelte/reactivity/window';
 
@@ -26,12 +26,12 @@
 {/if}
 
 <svelte:head>
-	<link rel="icon" href={favicon} />
+	<link rel="icon" href="/fuecoco.png" />
 
 	<title>etash jhanji</title>
 	<meta property="og:title" content="etash jhanji" />
 	<meta property="og:description" content="cs @ cmu" />
-	<meta property="og:image" content="$lib/assets/fuecoco.png" />
+	<meta property="og:image" content="/fuecoco.png" />
 	<meta property="og:url" content="http://etashj.github.io/" />
 	<meta property="og:logo" content="$lib/assets/fuecoco.png" />
 	<meta property="og:type" content="website" />
