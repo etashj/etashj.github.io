@@ -131,12 +131,18 @@
 						class="text-green-600 dark:text-green-400">"SvelteKit"</span
 					>, <span class="text-green-600 dark:text-green-400">"TailwindCSS"</span>, <span
 						class="text-green-600 dark:text-green-400">"HeadlessUI"</span
-					>],
-        &rbrace;<br /><span class="text-blue-600 dark:text-blue-400">languages</span> = [<span
+					>],<span class="text-green-600 dark:text-green-400">
+            "etc"</span
+					> : [<span class="text-green-600 dark:text-green-400">"docker"</span>, <span
+						class="text-green-600 dark:text-green-400">"unix"</span
+					>, <span class="text-green-600 dark:text-green-400">"git"</span>, ], <br />
+        &rbrace;<br /><span class="text-blue-600 dark:text-blue-400">software</span> = [<span
 						class="text-green-600 dark:text-green-400">"Microsoft Office"</span
 					>, <span class="text-green-600 dark:text-green-400">"Adobe Illustrator"</span>, <span
 						class="text-green-600 dark:text-green-400">"Adobe Indesign"</span
-					>, <span class="text-green-600 dark:text-green-400">"Neovim"</span>, ]</code
+					>, <span class="text-green-600 dark:text-green-400">"Neovim"</span>, <span
+						class="text-green-600 dark:text-green-400">"Fusion 360"</span
+					>,]</code
 				></pre>
 		</div>
 		<br />
