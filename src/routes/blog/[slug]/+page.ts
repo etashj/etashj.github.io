@@ -3,10 +3,10 @@ import type { PageLoad } from './$types';
 
 export const load: PageLoad = async ({ params }) => {
   // 1. Use the root-relative path (starts with /src)
-  const posts = import.meta.glob('$lib/blog/*.md');
+  const posts = import.meta.glob('$lib/data/blog/*.md');
 
   // 2. Build the key to match the glob keys exactly
-  const path = `/src/lib/blog/${params.slug}.md`;
+  const path = `/src/lib/data/blog/${params.slug}.md`;
 
   // 3. Check if the slug exists in your lib folder
   if (!posts[path]) {

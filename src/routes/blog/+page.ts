@@ -4,7 +4,7 @@ import type { Post } from '$lib/types';
 export const load: PageLoad = async () => {
   // 1. Glob all markdown files in the posts directory
   // We use { eager: true } to get the data immediately without awaiting each file
-  const allPostFiles = import.meta.glob<{ metadata: Post }>('$lib/blog/*.md', {
+  const allPostFiles = import.meta.glob<{ metadata: Post }>('$lib/data/blog/*.md', {
     eager: true
   });
 

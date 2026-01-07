@@ -16,7 +16,17 @@
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://etashj.github.io/blog/sample</loc>
+    <loc>https://etashj.github.io/blog/F25</loc>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://etashj.github.io/blog/ISEF</loc>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://etashj.github.io/blog/Making-this-Website</loc>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>

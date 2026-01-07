@@ -7,7 +7,7 @@ const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
 
 const routesDir = path.join(__dirname, 'src/routes');
-const srcDir = path.join(__dirname, 'src/lib/blog');
+const srcDir = path.join(__dirname, 'src/lib/data/blog');
 const destDir = path.join(__dirname, 'static/raw-blog');
 const sitemapPath = path.join(__dirname, 'static/sitemap.xml');
 

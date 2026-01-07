@@ -10,7 +10,7 @@
 		{ id: 'home', path: '/' },
 		{ id: 'about', path: '/about' },
 		{ id: 'projects', path: '/projects' },
-		{ id: 'design', path: '/design' },
+		// { id: 'design', path: '/design' },
 		{ id: 'blog', path: '/blog' }
 	];
 
