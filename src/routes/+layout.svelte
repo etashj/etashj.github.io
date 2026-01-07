@@ -4,8 +4,6 @@
 	import { onMount } from 'svelte';
 	import { innerWidth } from 'svelte/reactivity/window';
 
-	// export const prerender = true;
-
 	let { children } = $props();
 
 	import DesktopNavBar from '$lib/desktop-components/DesktopNav.svelte';
@@ -19,6 +17,9 @@
 			isMobile = window.innerWidth < 530;
 		});
 	});
+
+	export const prerender = true;
+	export const trailingSlash = 'always';
 </script>
 
 {#if (innerWidth && innerWidth.current! > 530) || !isMobile}
