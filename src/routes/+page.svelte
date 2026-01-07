@@ -51,6 +51,10 @@
 	});
 </script>
 
+<svelte:head>
+	<meta name="google-site-verification" content="PhIQylF6YaD0goGYqvCLkigoPWsCO0ZnwLNlGBa1PsI" />
+</svelte:head>
+
 <div class=" z-10 rounded-2xl p-4">
 	<div class="w-fit max-w-fit text-6xl xs:text-7xl" use:melt={$trigger}>
 		{#if $isHindi}
