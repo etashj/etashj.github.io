@@ -18,6 +18,7 @@ export const load: PageLoad = async ({ params }) => {
 
   return {
     content: post.default,
-    meta: post.metadata
+    meta: post.metadata,
+    slug: params.slug
   };
 };
