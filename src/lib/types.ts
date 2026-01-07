@@ -13,3 +13,10 @@ export interface Project {
 
   slug: string; // Added during the mapping process
 }
+
+export interface Post {
+  title: string;
+  date: string;
+  description?: string;
+  // Add any other frontmatter fields here
+}
