@@ -17,9 +17,6 @@
 			isMobile = window.innerWidth < 530;
 		});
 	});
-
-	export const prerender = true;
-	export const trailingSlash = 'always';
 </script>
 
 {#if (innerWidth && innerWidth.current! > 530) || !isMobile}
