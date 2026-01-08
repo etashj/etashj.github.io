@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<rss version="2.0">
+<channel>
+  <title>Etash Jhanji</title>
+  <link>https://etashj.github.io</link>
+  <description>Personal website and blog of Etash Jhanji</description>
+  <lastBuildDate>Thu, 08 Jan 2026 01:37:43 GMT</lastBuildDate>
+  <pubDate>Thu, 08 Jan 2026 01:37:43 GMT</pubDate>
+  <ttl>1800</ttl>
+  
+  <item>
+    <title>Making this Website</title>
+    <link>https://etashj.github.io/blog/Making-this-Website</link>
+    <description>built with svelte, tailwind, three.js, and a whole lot of cope</description>
+    <pubDate>Wed, 07 Jan 2026 00:00:00 GMT</pubDate>
+    <guid>https://etashj.github.io/blog/Making-this-Website</guid>
+  </item>
+  <item>
+    <title>Semester 1 of CS @ CMU</title>
+    <link>https://etashj.github.io/blog/F25</link>
+    <description>...</description>
+    <pubDate>Mon, 15 Dec 2025 00:00:00 GMT</pubDate>
+    <guid>https://etashj.github.io/blog/F25</guid>
+  </item>
+  <item>
+    <title>ISEF: International Science and Engineering (Un)Fair</title>
+    <link>https://etashj.github.io/blog/ISEF</link>
+    <description>A journal from AP Land about the 2024 cheating in ISEF</description>
+    <pubDate>Tue, 28 May 2024 00:00:00 GMT</pubDate>
+    <guid>https://etashj.github.io/blog/ISEF</guid>
+  </item>
+</channel>
+</rss>

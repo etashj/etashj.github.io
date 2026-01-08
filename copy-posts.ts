@@ -1,4 +1,3 @@
-
 import fs from 'node:fs';
 import path from 'node:path';
 import { fileURLToPath } from 'node:url';
@@ -10,8 +9,11 @@ const routesDir = path.join(__dirname, 'src/routes');
 const srcDir = path.join(__dirname, 'src/lib/data/blog');
 const destDir = path.join(__dirname, 'static/raw-blog');
 const sitemapPath = path.join(__dirname, 'static/sitemap.xml');
+const rssPath = path.join(__dirname, 'static/rss.xml');
 
 const BASE_URL = 'https://etashj.github.io';
+const SITE_TITLE = 'Etash Jhanji';
+const SITE_DESCRIPTION = 'Personal website and blog of Etash Jhanji';
 
 // Recursive function to find static routes based on folder structure
 function findRoutes(currentPath: string, routePrefix: string): string[] {
@@ -55,6 +57,28 @@ function findRoutes(currentPath: string, routePrefix: string): string[] {
   return routes;
 }
 
+// Helper to extract frontmatter from markdown
+function parseFrontmatter(content: string) {
+  const frontmatterRegex = /^---\s*([\s\S]*?)\s*---/;
+  const match = content.match(frontmatterRegex);
+
+  if (!match) return {};
+
+  const frontmatterBlock = match[1];
+  const metadata: Record<string, string> = {};
+
+  frontmatterBlock.split('\n').forEach(line => {
+    const [key, ...valueParts] = line.split(':');
+    if (key && valueParts.length) {
+      // Remove quotes and whitespace
+      const value = valueParts.join(':').trim().replace(/^['"]|['"]$/g, '');
+      metadata[key.trim()] = value;
+    }
+  });
+
+  return metadata;
+}
+
 console.log('Starting build pre-processing...');
 
 try {
@@ -63,25 +87,46 @@ try {
   fs.cpSync(srcDir, destDir, { recursive: true, force: true });
   console.log('Successfully copied blog posts.');
 
-  // 2. Generate sitemap
-  console.log('Generating sitemap...');
+  // 2. Generate sitemap and RSS
+  console.log('Generating sitemap and RSS...');
 
   // Scan for static routes in src/routes
   const routes = findRoutes(routesDir, '');
+  const blogPosts: { url: string; title: string; date: string; description: string }[] = [];
 
   // Get blog posts for dynamic routes
   if (fs.existsSync(srcDir)) {
     const files = fs.readdirSync(srcDir);
-    const blogRoutes = files
-      .filter(file => file.endsWith('.md'))
-      .map(file => `/blog/${path.basename(file, '.md')}`);
 
-    routes.push(...blogRoutes);
+    files
+      .filter(file => file.endsWith('.md'))
+      .forEach(file => {
+        const filePath = path.join(srcDir, file);
+        const content = fs.readFileSync(filePath, 'utf-8');
+        const metadata = parseFrontmatter(content);
+        const slug = path.basename(file, '.md');
+        const url = `/blog/${slug}`;
+
+        routes.push(url);
+
+        if (metadata.title && metadata.date) {
+          blogPosts.push({
+            url: `${BASE_URL}${url}`,
+            title: metadata.title,
+            date: metadata.date,
+            description: metadata.description || ''
+          });
+        }
+      });
   }
 
-  // Sort for consistent output
+  // Sort routes for sitemap consistency
   routes.sort();
 
+  // Sort blog posts by date (newest first) for RSS
+  blogPosts.sort((a, b) => new Date(b.date).getTime() - new Date(a.date).getTime());
+
+  // --- Generate Sitemap ---
   const sitemapContent = `<?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
 ${routes.map(route => {
@@ -96,6 +141,30 @@ ${routes.map(route => {
 
   fs.writeFileSync(sitemapPath, sitemapContent);
   console.log(`Successfully generated sitemap at ${sitemapPath}`);
+
+  // --- Generate RSS Feed ---
+  const rssContent = `<?xml version="1.0" encoding="UTF-8" ?>
+<rss version="2.0">
+<channel>
+  <title>${SITE_TITLE}</title>
+  <link>${BASE_URL}</link>
+  <description>${SITE_DESCRIPTION}</description>
+  <lastBuildDate>${new Date().toUTCString()}</lastBuildDate>
+  <pubDate>${new Date().toUTCString()}</pubDate>
+  <ttl>1800</ttl>
+  ${blogPosts.map(post => `
+  <item>
+    <title>${post.title}</title>
+    <link>${post.url}</link>
+    <description>${post.description}</description>
+    <pubDate>${new Date(post.date).toUTCString()}</pubDate>
+    <guid>${post.url}</guid>
+  </item>`).join('')}
+</channel>
+</rss>`;
+
+  fs.writeFileSync(rssPath, rssContent);
+  console.log(`Successfully generated RSS feed at ${rssPath}`);
 
 } catch (err) {
   console.error('Error during build tasks:', err);

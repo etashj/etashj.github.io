@@ -38,11 +38,77 @@
 			}
 		};
 	}
+
+	const share = async () => {
+		const shareData = {
+			title: data.meta.title,
+			text: 'Check out this blog post!',
+			url: window.location.href
+		};
+
+		try {
+			if (navigator.share) {
+				await navigator.share(shareData);
+			} else {
+				// Fallback: Copy to clipboard
+				await navigator.clipboard.writeText(window.location.href);
+				alert('Link copied to clipboard!');
+			}
+		} catch (err) {
+			console.error('Error sharing:', err);
+		}
+	};
+
+	const rssShare = async () => {
+		const shareData = {
+			url: 'https://etashj.github.io/rss.xml'
+		};
+
+		try {
+			if (navigator.share) {
+				await navigator.share(shareData);
+			} else {
+				// Fallback: Copy to clipboard
+				await navigator.clipboard.writeText(window.location.href);
+				alert('Link copied to clipboard!');
+			}
+		} catch (err) {
+			console.error('Error sharing:', err);
+		}
+	};
 </script>
 
-<div
-	class="max-5 mt-10 mb-10 flex w-full flex-col content-center items-center justify-center gap-10"
->
+<div class="max-5 mb-10 flex w-full flex-col content-center items-center justify-center gap-10">
+	<div class="mt-10 flex flex-row flex-wrap gap-2">
+		<a href={resolve('/')} class="group mb-2 block w-fit">
+			<div
+				class="flex w-fit max-w-fit flex-row gap-1 rounded-lg bg-black/5 px-3 py-1 text-center text-black transition duration-300 group-hover:scale-105 dark:bg-white/15 dark:text-white"
+			>
+				<div class="transition duration-150 group-hover:-translate-x-0.5">←</div>
+				back home
+			</div>
+		</a>
+		<button type="button" on:click={share}>
+			<a class="group mb-2 block w-fit">
+				<div
+					class="flex w-fit max-w-fit flex-row gap-1 rounded-lg bg-black/5 px-3 py-1 text-center text-black transition duration-300 group-hover:scale-105 dark:bg-white/15 dark:text-white"
+				>
+					share
+					<div class="transition duration-150 group-hover:-translate-y-0.5">↑</div>
+				</div>
+			</a>
+		</button>
+		<button type="button" on:click={rssShare}>
+			<a class="group mb-2 block w-fit">
+				<div
+					class="flex w-fit max-w-fit flex-row gap-1 rounded-lg bg-black/5 px-3 py-1 text-center text-black transition duration-300 group-hover:scale-105 dark:bg-white/15 dark:text-white"
+				>
+					rss
+					<div class="transition duration-150 group-hover:-translate-y-0.5">↑</div>
+				</div>
+			</a>
+		</button>
+	</div>
 	{#each posts as project (project.title)}
 		<div
 			use:glassTilt
