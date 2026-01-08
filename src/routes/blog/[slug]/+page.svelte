@@ -3,6 +3,26 @@
 	import { resolve } from '$app/paths';
 
 	export let data: PageData;
+
+	const share = async () => {
+		const shareData = {
+			title: data.meta.title,
+			text: 'Check out this blog post!',
+			url: window.location.href
+		};
+
+		try {
+			if (navigator.share) {
+				await navigator.share(shareData);
+			} else {
+				// Fallback: Copy to clipboard
+				await navigator.clipboard.writeText(window.location.href);
+				alert('Link copied to clipboard!');
+			}
+		} catch (err) {
+			console.error('Error sharing:', err);
+		}
+	};
 </script>
 
 <article class="mx-3 prose py-10 prose-slate lg:prose-xl dark:text-white dark:prose-invert">
@@ -24,6 +44,15 @@
 			>
 				download ↓
 			</div></a
+		>
+		<button type="button" on:click={share}>
+			<a>
+				<div
+					class="bg-black-5 my-2 w-fit rounded-lg bg-black/5 px-3 py-1 text-center text-black no-underline transition duration-300 hover:scale-105 active:scale-90 dark:bg-white/15 dark:text-white"
+				>
+					share ↑
+				</div>
+			</a></button
 		>
 	</div>
 
