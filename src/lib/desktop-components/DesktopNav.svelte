@@ -1,6 +1,5 @@
 <script lang="ts">
 	import { page } from '$app/state';
-	import { afterNavigate } from '$app/navigation';
 	import { onMount } from 'svelte';
 	import { Spring } from 'svelte/motion'; // built-in reactive animation store
 	import { isHindi, toggleHindi } from '$lib/scripts/language';
@@ -11,7 +10,7 @@
 		{ id: 'home', path: '/' },
 		{ id: 'about', path: '/about' },
 		{ id: 'projects', path: '/projects' },
-		// { id: 'design', path: '/design' },
+		{ id: 'design', path: '/design' },
 		{ id: 'blog', path: '/blog' }
 	];
 
@@ -38,20 +37,32 @@
 	let active = $state<HTMLButtonElement | null>(null);
 	let biggie = $state<HTMLDivElement>();
 
-	// Run the code whenever mounter or when the page changes
-	onMount(() => {
+	// Calculate which tab should be active based on current URL
+	function isActive(tabPath: string, currentPath: string): boolean {
+		if (tabPath === '/') {
+			return currentPath === '/';
+		}
+		return currentPath.startsWith(tabPath);
+	}
+
+	$effect(() => {
+		// This effect runs whenever `active`, `biggie`, or `page.url.pathname` (implicitly via finding the active element) changes
+		// However, we need to make sure we find the correct element in the DOM if we are rendering manually.
+		// Since we use bind:this={active} inside the #each loop based on the condition,
+		// Svelte will handle updating `active` when the `isActive` condition changes.
+		// We just need to trigger the highlight update.
+
 		if (active && biggie) {
 			updateHighlight(active, biggie);
 		}
+	});
 
+	// Run the code whenever mounter or when the page changes
+	onMount(() => {
 		const handleResize = () => updateHighlight(active, biggie);
 		window.addEventListener('resize', handleResize);
 
 		return () => window.removeEventListener('resize', handleResize);
-	});
-
-	afterNavigate(() => {
-		updateHighlight(active, biggie);
 	});
 
 	////// Light and Dark Mode Logic //////
@@ -119,8 +130,7 @@
                 "
 			></div>
 			{#each tabs as tab (tab.id)}
-				<!--class:bg-black={page.url.pathname===tab.path} -->
-				{#if page.url.pathname === tab.path}
+				{#if isActive(tab.path, page.url.pathname)}
 					<button
 						bind:this={active}
 						id={tab.id}
@@ -146,7 +156,7 @@
 					<button
 						id={tab.id}
 						class="rounded-full px-3 py-1.5 transition duration-300 hover:scale-110 active:scale-90 dark:text-white"
-						onclick={() => updateHighlight(active, biggie)}
+						onclick={() => updateHighlight(active!, biggie)}
 					>
 						<a href={tab.path}>{tab.id}</a>
 					</button>
