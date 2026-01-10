@@ -25,7 +25,9 @@
 	};
 </script>
 
-<article class="mx-3 prose w-full py-10 prose-slate lg:prose-xl dark:text-white dark:prose-invert">
+<article
+	class="mx-3 prose self-stretch py-10 prose-slate lg:prose-xl dark:text-white dark:prose-invert"
+>
 	<header>
 		<p class="text-sm text-slate-500 dark:text-white/50">{data.meta.date}</p>
 		<h1 class="dark:text-white">{data.meta.title}</h1>
