@@ -4,5 +4,10 @@
 @custom-variant dark (&:where(.dark, .dark *));
 
 @theme {
-  --breakpoint-xs: 33.125rem;
+    --breakpoint-xs: 33.125rem;
+}
+
+.prose pre {
+    max-width: 100%;
+    overflow-x: auto;
 }

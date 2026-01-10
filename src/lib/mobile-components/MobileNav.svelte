@@ -59,7 +59,6 @@
 	}
 </script>
 
-```svelte /Users/etashj/Documents/GitHub/etashj.github.io/src/lib/mobile-components/MobileNav.svelte
 <nav class="fixed z-50 flex w-screen flex-row content-center py-0">
 	<div
 		class="mx-8 my-8 flex w-screen flex-row content-center justify-between gap-4 rounded-full bg-black/5 p-2 dark:bg-white/10"
