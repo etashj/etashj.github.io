@@ -27,8 +27,8 @@
 
 <svelte:head>
 	<link rel="icon" href="/fuecoco.png" />
-
 	<title>etash jhanji</title>
+	<meta name="description" content="etash jhanji: cs @ cmu personal site" />
 	<meta property="og:title" content="etash jhanji" />
 	<meta property="og:description" content="cs @ cmu" />
 	<meta property="og:image" content="/fuecoco.png" />
