@@ -88,7 +88,7 @@
 				back home
 			</div>
 		</a>
-		<button type="button" on:click={share}>
+		<button type="button" aria-label="share" on:click={share}>
 			<a class="group mb-2 block w-fit">
 				<div
 					class="flex w-fit max-w-fit flex-row gap-1 rounded-lg bg-black/5 px-3 py-1 text-center text-black transition duration-300 group-hover:scale-105 dark:bg-white/15 dark:text-white"
@@ -98,7 +98,7 @@
 				</div>
 			</a>
 		</button>
-		<button type="button" on:click={rssShare}>
+		<button type="button" aria-label="rss" on:click={rssShare}>
 			<a class="group mb-2 block w-fit">
 				<div
 					class="flex w-fit max-w-fit flex-row gap-1 rounded-lg bg-black/5 px-3 py-1 text-center text-black transition duration-300 group-hover:scale-105 dark:bg-white/15 dark:text-white"
