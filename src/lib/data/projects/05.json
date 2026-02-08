@@ -1,15 +1,15 @@
 {
-  "title": "Exploring and Applying Audio-Based Sentiment Analysis",
-  "date": "2024",
-  "description": "A research project and implementation using PyTorch and RNNs to predict musical emotion based on the circumplex model of affect.",
+  "title": "Sisyphus",
+  "date": "2026",
+  "description": "A 3D browser raymarching-based game inspired by the myth of Sisyphus. The goal is simple yet futile: push the boulder up the mountain. All of this without any assets in under 15 kB including physics, textures through fragment shaders, PWA support, cross platform controls, and extensible dynamic javascript modules. Winner of the 'how did you come up with this idea?' track by AppLovin at TartanHacks 2026",
   "tags": [
-    "Python",
-    "PyTorch",
-    "Signal Processing",
-    "Machine Learning"
+    "Ray Marching",
+    "WebGL",
+    "GLSL",
+    "Memory Operations"
   ],
   "links": {
-    "github": "https://github.com/etashj/Exploring-and-Applying-Audio-Based-Sentiment-Analysis",
-    "arxiv": "https://arxiv.org/abs/2403.17379"
+    "github": "https://github.com/overthrowing/futile-march",
+    "demo": "https://overthrowing.github.io/Futile-March/"
   }
 }
