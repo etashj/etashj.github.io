@@ -4,10 +4,17 @@
   <title>Etash Jhanji</title>
   <link>https://etashj.github.io</link>
   <description>Personal website and blog of Etash Jhanji</description>
-  <lastBuildDate>Sat, 10 Jan 2026 18:00:52 GMT</lastBuildDate>
-  <pubDate>Sat, 10 Jan 2026 18:00:52 GMT</pubDate>
+  <lastBuildDate>Sun, 08 Feb 2026 22:23:08 GMT</lastBuildDate>
+  <pubDate>Sun, 08 Feb 2026 22:23:08 GMT</pubDate>
   <ttl>1800</ttl>
   
+  <item>
+    <title>Tartan Hacks 26: One Must Imagine the CS Major Happy</title>
+    <link>https://etashj.github.io/blog/TH26</link>
+    <description>building a full 3D game in 15 kB for . god bless gemini. winning the applovin axon \"how did you come up with this\" track</description>
+    <pubDate>Sun, 08 Feb 2026 00:00:00 GMT</pubDate>
+    <guid>https://etashj.github.io/blog/TH26</guid>
+  </item>
   <item>
     <title>Making this Website</title>
     <link>https://etashj.github.io/blog/Making-this-Website</link>

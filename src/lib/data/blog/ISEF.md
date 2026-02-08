@@ -2,7 +2,7 @@
 title: "ISEF: International Science and Engineering (Un)Fair"
 date: "2024-05-28"
 author: Etash Jhanji
-description: "A journal from AP Land about the 2024 cheating in ISEF"
+description: "A journal from AP Lang about the 2024 cheating in ISEF"
 keywords: ["miscellanous", "science fair", "research", "high school"]
 link: https://etashj.github.io/blog/ISEF
 raw-link: https://etashj.github.io/ISEF.md
