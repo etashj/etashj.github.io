@@ -7,7 +7,6 @@
 	const share = async () => {
 		const shareData = {
 			title: data.meta.title,
-			text: 'Check out this blog post!',
 			url: window.location.href
 		};
 
