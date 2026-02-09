@@ -1,7 +1,7 @@
 {
   "title": "Sisyphus",
   "date": "2026",
-  "description": "A 3D browser raymarching-based game inspired by the myth of Sisyphus. The goal is simple yet futile: push the boulder up the mountain. All of this without any assets in under 15 kB including physics, textures through fragment shaders, PWA support, cross platform controls, and extensible dynamic javascript modules. Winner of the 'how did you come up with this idea?' track by AppLovin at TartanHacks 2026",
+  "description": "A 3D browser raymarching-based game inspired by the myth of Sisyphus. The goal is simple yet futile: push the boulder up the mountain. All of this without any assets in under 15 KB including physics, textures through fragment shaders, PWA support, cross platform controls, and extensible dynamic javascript modules. Winner of the 'how did you come up with this idea?' track by AppLovin at TartanHacks 2026",
   "tags": [
     "Ray Marching",
     "Computer Graphics",
