@@ -7,7 +7,7 @@ keywords: ["miscellanous", "science fair", "research", "high school"]
 link: https://etashj.github.io/blog/ISEF
 raw-link: https://etashj.github.io/ISEF.md
 ---
-*This post was written as an assignment for AP Lang in my junior year of high school. This is not to intended to nor does it endorse targeting any individual.*
+*This post was written as an assignemnt for AP Lang in my junior year of high school. This is not to intended to nor does it endorse targeting any individual.*
 
 The Regeneron International Science and Engineering Fair (ISEF) is the world’s premier science fair. Every year thousands of high-caliber student researchers from around the world gather in one city to present their findings for the chance at monetary prizes from the fair’s judges and sponsors and to attain the honor that comes with attending an event of such stature. 
 	
