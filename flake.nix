@@ -13,8 +13,7 @@
       in {
         devShells.default = pkgs.mkShell {
           buildInputs = with pkgs; [
-            nodejs_22   # matches @types/node ^22 in package.json
-            nodePackages.npm
+            nodejs_22   # matches @types/node ^22; npm is bundled inside
             git         # needed by svelte-kit sync / some npm lifecycle scripts
           ];
 
