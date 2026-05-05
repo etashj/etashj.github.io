@@ -96,7 +96,7 @@
 					> : <span class="text-green-600 dark:text-green-400">"Matrix Algebra", </span><br
 					/>              <span class="text-green-600 dark:text-green-400">"21-266"</span> : <span
 						class="text-green-600 dark:text-green-400"
-						>"Vector Calculus for Computer Scientists", </span><br />            &rbrace;</code
+						>"Vector Calculus using Matrix Algebra", </span><br />            &rbrace;</code
 				></pre>
 		</div>
 		<br />
