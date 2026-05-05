@@ -45,32 +45,30 @@
 	<div>
 		<div class="flex min-w-50 flex-col flex-wrap gap-4 md:flex-row">
 			<p class="my-2 max-w-fit text-sm xs:text-base md:max-w-3/8">
-				My minors include <strong>Machine Learning</strong> and <strong>Systems</strong>, but I'm
-				also interested in HCI, LLMs, and signal processing research. <br /><br />I'm a
+				My planned concetration is <strong>Systems</strong>, but I'm also interested in ML, HCI,
+				LLMs, and signal processing research. <br /><br />I'm a
 				<strong>teaching assistant for 15-122</strong>
-				(Principles of Imperative Computation), CMUs most rigourous introductory programming class which
-				teaches programming in C, data structures, contract based programming, proofs, and memory safety.<br
+				(Principles of Imperative Computation), CMUs rigourous introductory programming class which teaches
+				programming in C, data structures, contract-based programming, proofs, and memory safety.<br
 				/><br />
 				In the past I have worked in biology labs leveraging
 				<strong>computer vision</strong> for microscopy analysis and completed several machine learning
-				projects. My selected coursework includes 15-122 and 15-151.
+				projects. My selected coursework includes 15-122, 15-213, 15-150, and 15-151.
 			</p>
 			<pre
 				class="max-w-full overflow-x-auto rounded-lg p-4 text-sm md:max-w-4/8 dark:bg-gray-800/50"><code
 					><span class="text-blue-600 dark:text-blue-400">major</span>           = <span
 						class="text-green-600 dark:text-green-400">"Computer Science"</span
-					><br /><span class="text-blue-600 dark:text-blue-400">concentrations</span>  = [<span
-						class="text-green-600 dark:text-green-400">"Machine Learning"</span
-					>, <span class="text-green-600 dark:text-green-400">"Systems"</span>, ] <br /><span
-						class="text-blue-600 dark:text-blue-400">interests</span
-					>       = [<span class="text-green-600 dark:text-green-400">"AI"</span>, <span
-						class="text-green-600 dark:text-green-400">"HCI"</span
-					>, <span class="text-green-600 dark:text-green-400">"signal processing"</span>, <span
+					><br /><span class="text-blue-600 dark:text-blue-400">concentration</span>   = <span
+						class="text-green-600 dark:text-green-400">"Systems"</span
+					> <br /><span class="text-blue-600 dark:text-blue-400">interests</span>       = [<span
+						class="text-green-600 dark:text-green-400">"AI"</span
+					>, <span class="text-green-600 dark:text-green-400">"HCI"</span>, <span
+						class="text-green-600 dark:text-green-400">"signal processing"</span
+					>, <span class="text-gray-400 dark:text-gray-500">None</span>, <span
 						class="text-gray-400 dark:text-gray-500">None</span
-					>, <span class="text-gray-400 dark:text-gray-500">None</span>] <br /><span
-						class="text-blue-600 dark:text-blue-400">experience</span
-					>      = [<span class="text-green-600 dark:text-green-400"
-						>"Hukriede Lab - computer vision"</span
+					>] <br /><span class="text-blue-600 dark:text-blue-400">experience</span>      = [<span
+						class="text-green-600 dark:text-green-400">"Hukriede Lab - computer vision"</span
 					>,
                   <span class="text-green-600 dark:text-green-400">"signal processing"</span>,<span
 						class="text-green-600 dark:text-green-400">"deep learning"</span
@@ -78,27 +76,36 @@
 					>  =  &lbrace;
               <span class="text-green-600 dark:text-green-400">"15-122"</span> : [<span
 						class="text-green-600 dark:text-green-400">"S26"</span
+					>, <span class="text-green-600 dark:text-green-400">"N26"</span>, <span
+						class="text-green-600 dark:text-green-400">"F26"</span
 					>, ],
             &rbrace;<br /><span class="text-blue-600 dark:text-blue-400">selected_coursework</span
 					> =  &lbrace;<br />              <span class="text-green-600 dark:text-green-400"
 						>"15-122"</span
 					> : <span class="text-green-600 dark:text-green-400"
 						>"Principles of Imperative Computation"</span
-					>, <br />              <span class="text-green-600 dark:text-green-400">"15-151"</span
+					>, <br />              <span class="text-green-600 dark:text-green-400">"15-213"</span
 					> : <span class="text-green-600 dark:text-green-400"
+						>"Introduction to Computer Systems"</span
+					>, <br />              <span class="text-green-600 dark:text-green-400">"15-150"</span
+					> : <span class="text-green-600 dark:text-green-400">"Functional Programming"</span>, <br
+					/>              <span class="text-green-600 dark:text-green-400">"15-151"</span> : <span
+						class="text-green-600 dark:text-green-400"
 						>"Mathematical Foundations for Computer Science"</span
 					>, <br />              <span class="text-green-600 dark:text-green-400">"21-241"</span
 					> : <span class="text-green-600 dark:text-green-400">"Matrix Algebra", </span><br
-					/>            &rbrace;</code
+					/>              <span class="text-green-600 dark:text-green-400">"21-266"</span> : <span
+						class="text-green-600 dark:text-green-400"
+						>"Vector Calculus for Computer Scientists", </span><br />            &rbrace;</code
 				></pre>
 		</div>
 		<br />
 		<div class="flex min-w-50 flex-col flex-wrap gap-4 md:flex-row">
 			<p class="my-2 max-w-fit text-sm xs:text-base md:max-w-3/8">
-				Currently I'm looking for research experience for the semester, as well as possible summer
-				positions in industry. I'm most familiar with Python, PyTorch, OpenCV, C, and Java, but I
-				have a moderate experience in C++ and Rust. On the other end of the stack I have extensive
-				experience in frontend with HTML/CSS/JS, React, TailwindCSS, and Svelte.
+				Currently I'm looking for systems research experience at a beginner level, as well as
+				possible summer positions in industry. I'm most familiar with Python, PyTorch, OpenCV, C,
+				and Java, but I have a moderate experience in C++ and Rust. On the other end of the stack I
+				have extensive experience in frontend with HTML/CSS/JS, React, TailwindCSS, and Svelte.
 			</p>
 			<pre
 				class="max-w-full overflow-x-auto rounded-lg bg-gray-200/50 p-4 text-sm md:max-w-4/8 dark:bg-gray-800/50"><code
