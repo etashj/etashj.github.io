@@ -45,33 +45,54 @@
 	<div>
 		<div class="flex min-w-50 flex-col flex-wrap gap-4 md:flex-row">
 			<p class="my-2 max-w-fit text-sm xs:text-base md:max-w-3/8">
-				My planned concetration is <strong>Systems</strong>, but I'm also interested in ML, HCI,
-				LLMs, and signal processing research. <br /><br />I'm a
-				<strong>teaching assistant for 15-122</strong>
+				I am concetrating in Computer Systems and enjoy taking hard courses in the field. <br /><br />I'm a
+				<strong>teaching assistant</strong> for <a
+					target="_blank"
+					class="underline decoration-dashed"
+					href="https://www.cs.cmu.edu/~15122/">15-122</a
+				>
 				(Principles of Imperative Computation), CMUs rigourous introductory programming class which teaches
 				programming in C, data structures, contract-based programming, proofs, and memory safety.<br
 				/><br />
-				In the past I have worked in biology labs leveraging
-				<strong>computer vision</strong> for microscopy analysis and completed several machine learning
-				projects. My selected coursework includes 15-122, 15-213, 15-150, and 15-151.
+				To keep me busy, I am the <strong>tech lead</strong> of <a
+					target="_blank"
+					class="underline decoration-dashed"
+					href="https://courses.scottylabs.org/">CMU Courses</a
+				> at <a
+					target="_blank"
+					class="underline decoration-dashed"
+					href="https://scottylabs.org/">ScottyLabs</a
+				>. Me and my team develop new features and maintain the existing
+				codebase which serves CMU students during scheduling. If you're a CMU student, be sure to click that link and check it out for next
+				semester ;)
+				<br /><br />
+				I am currently working with Prof. <a
+					target="_blank"
+					class="underline decoration-dashed"
+					href="https://www.cs.cmu.edu/~jssunshi/">Joshua Sunshine</a
+				> in his lab on <strong>specification refinement</strong> tools for critical
+			    code to be agentically developed. In the past I have worked with biology labs, leveraging
+				computer vision for microscopy analysis. <br /><br />My selected coursework includes Database Systems [15-445], Intro to Computer Systems [15-213], Great Theoretical Ideas in CS [15-251]
+				Imperative Computation [15-122], Functional Programming [15-150], and Probability and Computing [15-151].
 			</p>
 			<pre
-				class="max-w-full overflow-x-auto rounded-lg p-4 text-sm md:max-w-4/8 dark:bg-gray-800/50"><code
+				class="max-w-full self-start overflow-x-auto rounded-lg p-4 text-sm md:max-w-4/8 dark:bg-gray-800/50"><code
 					><span class="text-blue-600 dark:text-blue-400">major</span>           = <span
 						class="text-green-600 dark:text-green-400">"Computer Science"</span
 					><br /><span class="text-blue-600 dark:text-blue-400">concentration</span>   = <span
-						class="text-green-600 dark:text-green-400">"Systems"</span
+						class="text-green-600 dark:text-green-400">"Computer Systems"</span
 					> <br /><span class="text-blue-600 dark:text-blue-400">interests</span>       = [<span
-						class="text-green-600 dark:text-green-400">"AI"</span
-					>, <span class="text-green-600 dark:text-green-400">"HCI"</span>, <span
-						class="text-green-600 dark:text-green-400">"signal processing"</span
-					>, <span class="text-gray-400 dark:text-gray-500">None</span>, <span
+						class="text-green-600 dark:text-green-400">"System Design"</span
+					>, <span class="text-green-600 dark:text-green-400">"Optimization"</span>, <span
+						class="text-green-600 dark:text-green-400">"Databases"</span
+					>, <span class="text-gray-400 dark:text-gray-500">"User Experiences"</span>, <span
 						class="text-gray-400 dark:text-gray-500">None</span
 					>] <br /><span class="text-blue-600 dark:text-blue-400">experience</span>      = [<span
-						class="text-green-600 dark:text-green-400">"Hukriede Lab - computer vision"</span
+						class="text-green-600 dark:text-green-400">"ScottyLabs - CMU Courses Tech Lead"</span
 					>,
-                  <span class="text-green-600 dark:text-green-400">"signal processing"</span>,<span
-						class="text-green-600 dark:text-green-400">"deep learning"</span
+                   <span class="text-green-600 dark:text-green-400">"Google x CMU - AlloyDB Optimization Team"</span>,
+                  <span
+						class="text-green-600 dark:text-green-400"> "Sunshine Lab - Specification Refinement and Testing"</span
 					>,]<br /><span class="text-blue-600 dark:text-blue-400">teaching_assistant</span
 					>  =  &lbrace;
               <span class="text-green-600 dark:text-green-400">"15-122"</span> : [<span
@@ -81,96 +102,81 @@
 					>, ],
             &rbrace;<br /><span class="text-blue-600 dark:text-blue-400">selected_coursework</span
 					> =  &lbrace;<br />              <span class="text-green-600 dark:text-green-400"
-						>"15-122"</span
+						>"15-445"</span
 					> : <span class="text-green-600 dark:text-green-400"
-						>"Principles of Imperative Computation"</span
+						>"Database Systems"</span
 					>, <br />              <span class="text-green-600 dark:text-green-400">"15-213"</span
 					> : <span class="text-green-600 dark:text-green-400"
 						>"Introduction to Computer Systems"</span
+					>, <br />              <span class="text-green-600 dark:text-green-400">"15-251"</span
+					> : <span class="text-green-600 dark:text-green-400">"Great Theoretical Ideas in Computer Science"</span>, <br
+					/>              <span class="text-green-600 dark:text-green-400">"15-122"</span> : <span
+						class="text-green-600 dark:text-green-400"
+						>"Principles of Imperative Computation"</span
 					>, <br />              <span class="text-green-600 dark:text-green-400">"15-150"</span
-					> : <span class="text-green-600 dark:text-green-400">"Functional Programming"</span>, <br
-					/>              <span class="text-green-600 dark:text-green-400">"15-151"</span> : <span
+					> : <span class="text-green-600 dark:text-green-400">"Principles of Functional Programming", </span><br
+					/>              <span class="text-green-600 dark:text-green-400">"21-259"</span> : <span
 						class="text-green-600 dark:text-green-400"
-						>"Mathematical Foundations for Computer Science"</span
-					>, <br />              <span class="text-green-600 dark:text-green-400">"21-241"</span
-					> : <span class="text-green-600 dark:text-green-400">"Matrix Algebra", </span><br
-					/>              <span class="text-green-600 dark:text-green-400">"21-266"</span> : <span
-						class="text-green-600 dark:text-green-400"
-						>"Vector Calculus using Matrix Algebra", </span><br />            &rbrace;</code
+						>"Probability and Computing", </span><br />            &rbrace;</code
 				></pre>
 		</div>
 		<br />
 		<div class="flex min-w-50 flex-col flex-wrap gap-4 md:flex-row">
 			<p class="my-2 max-w-fit text-sm xs:text-base md:max-w-3/8">
-				Currently I'm looking for systems research experience at a beginner level, as well as
-				possible summer positions in industry. I'm most familiar with Python, PyTorch, OpenCV, C,
-				and Java, but I have a moderate experience in C++ and Rust. On the other end of the stack I
-				have extensive experience in frontend with HTML/CSS/JS, React, TailwindCSS, and Svelte.
+				Currently I'm seeking out <strong>internships</strong> in backend and systems roles for the upcoming summer. I'm familiar with your
+				typical stack: C, C++, Rust, Python, etc., but have various amounts of experience with other languages and am quick
+			 to pick up any tooling you throw at me.
 			</p>
 			<pre
-				class="max-w-full overflow-x-auto rounded-lg bg-gray-200/50 p-4 text-sm md:max-w-4/8 dark:bg-gray-800/50"><code
-					><span class="text-blue-600 dark:text-blue-400">searching</span> = &lbrace;
-                <span class="text-green-600 dark:text-green-400">"research"</span>    : [<span
-						class="text-green-600 dark:text-green-400">"fall"</span
-					>, <span class="text-green-600 dark:text-green-400">"summer"</span>, <span
-						class="text-green-600 dark:text-green-400">"spring"</span
-					>],
-              <span class="text-green-600 dark:text-green-400">  "internships"</span> : [<span
-						class="text-green-600 dark:text-green-400">"summer"</span
-					>],
-        &rbrace; <br /><span class="text-blue-600 dark:text-blue-400">languages</span> = [<span
-						class="text-green-600 dark:text-green-400">"Python"</span
-					>, <span class="text-green-600 dark:text-green-400">"Java"</span>, <span
-						class="text-green-600 dark:text-green-400">"HTML/CSS/JS"</span
-					>, <span class="text-green-600 dark:text-green-400">"Typescript"</span>, <span
+				class="max-w-full self-start overflow-x-auto rounded-lg bg-gray-200/50 p-4 text-sm md:max-w-4/8 dark:bg-gray-800/50"><code
+					><span class="text-blue-600 dark:text-blue-400">searching</span> = &lbrace;<span class="text-green-600 dark:text-green-400"> "internships"</span> : [<span
+						class="text-green-600 dark:text-green-400">"summer '27"</span>], &rbrace; <br /><span class="text-blue-600 dark:text-blue-400">languages</span> = [<span
+						class="text-green-600 dark:text-green-400">"C"</span
+					>, <span class="text-green-600 dark:text-green-400">"C++"</span>, <span
 						class="text-green-600 dark:text-green-400">"Rust"</span
-					>, <span class="text-green-600 dark:text-green-400">"C"</span>, <span
-						class="text-green-600 dark:text-green-400">"R"</span
-					>,]<br /><span class="text-blue-600 dark:text-blue-400">frameworks_packages</span
-					> =  &lbrace; <span class="text-green-600 dark:text-green-400">
-            "python"</span
-					> : [<span class="text-green-600 dark:text-green-400">"numpy"</span>, <span
-						class="text-green-600 dark:text-green-400">"pytorch"</span
-					>, <span class="text-green-600 dark:text-green-400">"pandas"</span>, <span
-						class="text-green-600 dark:text-green-400">"opencv"</span
-					>], <br />            <span class="text-green-600 dark:text-green-400">"frontend"</span
-					> : [<span class="text-green-600 dark:text-green-400">"React"</span>, <span
-						class="text-green-600 dark:text-green-400">"SvelteKit"</span
-					>, <span class="text-green-600 dark:text-green-400">"TailwindCSS"</span>, <span
-						class="text-green-600 dark:text-green-400">"HeadlessUI"</span
-					>],<span class="text-green-600 dark:text-green-400">
-            "etc"</span
-					> : [<span class="text-green-600 dark:text-green-400">"docker"</span>, <span
-						class="text-green-600 dark:text-green-400">"unix"</span
-					>, <span class="text-green-600 dark:text-green-400">"git"</span>, ], <br />
-        &rbrace;<br /><span class="text-blue-600 dark:text-blue-400">software</span> = [<span
-						class="text-green-600 dark:text-green-400">"Microsoft Office"</span
-					>, <span class="text-green-600 dark:text-green-400">"Adobe Illustrator"</span>, <span
-						class="text-green-600 dark:text-green-400">"Adobe Indesign"</span
-					>, <span class="text-green-600 dark:text-green-400">"Neovim"</span>, <span
-						class="text-green-600 dark:text-green-400">"Fusion 360"</span
-					>,]</code
+					>, <span class="text-green-600 dark:text-green-400">"Typescript"</span>, <span
+						class="text-green-600 dark:text-green-400">"Go"</span
+					>, <span class="text-green-600 dark:text-green-400">"Python"</span>, <br>             <span
+						class="text-green-600 dark:text-green-400">"SQL"</span
+					>, <span
+						class="text-green-600 dark:text-green-400">"SML"</span
+					>,]<br /><span class="text-blue-600 dark:text-blue-400">technologies</span
+					> = [<span class="text-green-600 dark:text-green-400">"Linux/Unix"</span>, <span
+						class="text-green-600 dark:text-green-400">"Dcoker"</span
+					>, <span class="text-green-600 dark:text-green-400">"Nix"</span>, <span
+						class="text-green-600 dark:text-green-400">"Git"</span>, <span
+							class="text-green-600 dark:text-green-400">"Vim"</span>, <br>                <span
+								class="text-green-600 dark:text-green-400">"PostgreSQL"</span>, <span
+									class="text-green-600 dark:text-green-400">"DuckDB"</span>, <span
+										class="text-green-600 dark:text-green-400">"PyTorch"</span>, <span
+											class="text-green-600 dark:text-green-400">"SvelteKit"</span>, <br>                <span
+												class="text-green-600 dark:text-green-400">"TailwindCSS"</span>, <span
+													class="text-green-600 dark:text-green-400">"React"</span>, ]</code
 				></pre>
 		</div>
 		<br />
 		<div class="flex min-w-50 flex-col flex-wrap gap-4 md:flex-row">
 			<p class="my-2 max-w-fit text-sm xs:text-base md:max-w-3/8">
-				Some of my hobbies include stationery, tetris (I'm not very good, though), and manga.
+				Some of my hobbies include iPods, retro gaming, stationery, tetris (I'm not very good, though), and manga.
 			</p>
 			<pre
-				class="max-w-full overflow-x-auto rounded-lg bg-gray-200/50 p-4 text-sm md:max-w-4/8 dark:bg-gray-800/50"><code
+				class="max-w-full self-start overflow-x-auto rounded-lg bg-gray-200/50 p-4 text-sm md:max-w-4/8 dark:bg-gray-800/50"><code
 					><span class="text-blue-600 dark:text-blue-400">hobbies</span>      = [<span
+						class="text-green-600 dark:text-green-400">"iPods"</span
+					>, <span
+						class="text-green-600 dark:text-green-400">"retro gaming"</span
+					>, <span
 						class="text-green-600 dark:text-green-400">"stationery"</span
-					>, <span class="text-green-600 dark:text-green-400">"manga"</span>, <span
+					>, <br>                <span class="text-green-600 dark:text-green-400">"manga"</span>, <span
 						class="text-green-600 dark:text-green-400">"anime"</span
 					>, <span class="text-green-600 dark:text-green-400">"tetris"</span>]<br /><span
 						class="text-blue-600 dark:text-blue-400">anime_manga</span
-					>  = [<span class="text-green-600 dark:text-green-400">"Chainsaw Man"</span>, <span
+					>  = [<span class="text-green-600 dark:text-green-400">"Yotsuba&!"</span>, <span class="text-green-600 dark:text-green-400">"Full Metal Alchemist: Brotherhood"</span>, <br>                <span class="text-green-600 dark:text-green-400">"Chainsaw Man"</span>, <span
 						class="text-green-600 dark:text-green-400">"Evangelion"</span
 					>, <span class="text-green-600 dark:text-green-400">"Yotsuba&!"</span>,
                 <span class="text-green-600 dark:text-green-400">"Monster"</span>, <span
 						class="text-green-600 dark:text-green-400">"ReLIFE"</span
-					>, <span class="text-green-600 dark:text-green-400">"Look Back"</span>,
+					>, <span class="text-green-600 dark:text-green-400">"Look Back"</span>, <span class="text-green-600 dark:text-green-400">"The Climber"</span>,
                 <span class="text-green-600 dark:text-green-400">"Hope You're Happy Lemon"</span
 					>]</code
 				></pre>
