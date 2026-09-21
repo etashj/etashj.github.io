@@ -76,7 +76,7 @@
 				Imperative Computation [15-122], Functional Programming [15-150], and Probability and Computing [15-151].
 			</p>
 			<pre
-				class="max-w-full self-start overflow-x-auto rounded-lg p-4 text-sm md:max-w-4/8 dark:bg-gray-800/50"><code
+				class="max-w-full self-start overflow-x-auto rounded-lg p-4 text-sm md:max-w-4/8 dark:bg-gray-800/50 bg-gray-200/50"><code
 					><span class="text-blue-600 dark:text-blue-400">major</span>           = <span
 						class="text-green-600 dark:text-green-400">"Computer Science"</span
 					><br /><span class="text-blue-600 dark:text-blue-400">concentration</span>   = <span
@@ -157,7 +157,9 @@
 		<br />
 		<div class="flex min-w-50 flex-col flex-wrap gap-4 md:flex-row">
 			<p class="my-2 max-w-fit text-sm xs:text-base md:max-w-3/8">
-				Some of my hobbies include iPods, retro gaming, stationery, tetris (I'm not very good, though), and manga.
+				Some of my hobbies include iPods, retro gaming, stationery, tetris (I'm not very good, though), and manga. I love
+				picking up new things, especially if they deviate from my normal interests and are hands on (i.e. It's fun to pretend to be an EE
+				and repair electronics).
 			</p>
 			<pre
 				class="max-w-full self-start overflow-x-auto rounded-lg bg-gray-200/50 p-4 text-sm md:max-w-4/8 dark:bg-gray-800/50"><code
