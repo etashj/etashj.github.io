@@ -43,18 +43,18 @@
 	<br />
 
 	<div>
-		<div class="flex min-w-50 flex-col flex-wrap gap-4 md:flex-row">
-			<p class="my-2 max-w-fit text-sm xs:text-base md:max-w-3/8">
-				I am concetrating in Computer Systems and enjoy taking hard courses in the field. <br /><br />I'm a
+		<div class="grid grid-cols-1 gap-6 min-[1000px]:grid-cols-2">
+			<p class="my-2 min-w-0 w-full text-sm xs:text-base">
+				I am concentrating in Computer Systems and enjoy taking hard courses in the field. <br /><br />I'm a
 				<strong>teaching assistant</strong> for <a
 					target="_blank"
 					class="underline decoration-dashed"
 					href="https://www.cs.cmu.edu/~15122/">15-122</a
 				>
-				(Principles of Imperative Computation), CMUs rigourous introductory programming class which teaches
-				programming in C, data structures, contract-based programming, proofs, and memory safety.<br
-				/><br />
-				To keep me busy, I am the <strong>tech lead</strong> of <a
+				(Principles of Imperative Computation), where I get to teach programming in C, data structures,
+				contract-based programming, proofs, and memory safety. I also help with server maintenance and grading.
+				<br/><br />
+				I am the <strong>tech lead</strong> of <a
 					target="_blank"
 					class="underline decoration-dashed"
 					href="https://courses.scottylabs.org/">CMU Courses</a
@@ -81,7 +81,7 @@
 				Imperative Computation [15-122], Functional Programming [15-150], and Probability and Computing [15-151].
 			</p>
 			<pre
-				class="max-w-full self-start overflow-x-auto rounded-lg p-4 text-sm md:max-w-4/8 dark:bg-gray-800/50 bg-gray-200/50"><code
+				class="min-w-0 w-full self-start overflow-x-auto rounded-lg p-4 text-sm  dark:bg-gray-800/50 bg-gray-200/50"><code
 					><span class="text-blue-600 dark:text-blue-400">major</span>           = <span
 						class="text-green-600 dark:text-green-400">"Computer Science"</span
 					><br /><span class="text-blue-600 dark:text-blue-400">concentration</span>   = <span
@@ -126,14 +126,14 @@
 				></pre>
 		</div>
 		<br />
-		<div class="flex min-w-50 flex-col flex-wrap gap-4 md:flex-row">
-			<p class="my-2 max-w-fit text-sm xs:text-base md:max-w-3/8">
+		<div class="grid grid-cols-1 gap-6 min-[1000px]:grid-cols-2">
+			<p class="my-2 min-w-0 w-full text-sm xs:text-base">
 				Currently I'm seeking out <strong>internships</strong> in backend and systems roles for the upcoming summer. I'm familiar with your
 				typical stack: C, C++, Rust, Python, etc., but have various amounts of experience with other languages and am quick
 			 to pick up any tooling you throw at me.
 			</p>
 			<pre
-				class="max-w-full self-start overflow-x-auto rounded-lg bg-gray-200/50 p-4 text-sm md:max-w-4/8 dark:bg-gray-800/50"><code
+				class="min-w-0 w-full self-start overflow-x-auto rounded-lg bg-gray-200/50 p-4 text-sm  dark:bg-gray-800/50"><code
 					><span class="text-blue-600 dark:text-blue-400">searching</span> = &lbrace;<span class="text-green-600 dark:text-green-400"> "internships"</span> : [<span
 						class="text-green-600 dark:text-green-400">"summer '27"</span>], &rbrace; <br /><span class="text-blue-600 dark:text-blue-400">languages</span> = [<span
 						class="text-green-600 dark:text-green-400">"C"</span
@@ -160,14 +160,14 @@
 				></pre>
 		</div>
 		<br />
-		<div class="flex min-w-50 flex-col flex-wrap gap-4 md:flex-row">
-			<p class="my-2 max-w-fit text-sm xs:text-base md:max-w-3/8">
+		<div class="grid grid-cols-1 gap-6 min-[1000px]:grid-cols-2">
+			<p class="my-2 min-w-0 w-full text-sm xs:text-base">
 				Some of my hobbies include iPods, retro gaming, stationery, tetris (I'm not very good, though), and manga. I love
 				picking up new things, especially if they deviate from my normal interests and are hands on (i.e. It's fun to pretend to be an EE
 				and repair electronics).
 			</p>
 			<pre
-				class="max-w-full self-start overflow-x-auto rounded-lg bg-gray-200/50 p-4 text-sm md:max-w-4/8 dark:bg-gray-800/50"><code
+				class="min-w-0 w-full self-start overflow-x-auto rounded-lg bg-gray-200/50 p-4 text-sm  dark:bg-gray-800/50"><code
 					><span class="text-blue-600 dark:text-blue-400">hobbies</span>      = [<span
 						class="text-green-600 dark:text-green-400">"iPods"</span
 					>, <span
