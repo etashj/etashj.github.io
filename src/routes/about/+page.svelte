@@ -62,16 +62,21 @@
 					target="_blank"
 					class="underline decoration-dashed"
 					href="https://scottylabs.org/">ScottyLabs</a
-				>. Me and my team develop new features and maintain the existing
+				>. Our team develops new features and maintains the existing
 				codebase which serves CMU students during scheduling. If you're a CMU student, be sure to click that link and check it out for next
 				semester ;)
 				<br /><br />
-				I am currently working with Prof. <a
+				I also work with Google as a <strong>developer for AlloyDB</strong> on improving pg_basebackup
+				<strong>to incrementally back up databases</strong> enabling more efficent online backups. Specifically,
+				I helped build a benchmark which monitors the Linux system's status during the backup process. Now I'm working on
+				optimizations, using the benchmark to monitor performance improvements.
+				<br /><br />
+				On the research sidee, I am currently working with Prof. <a
 					target="_blank"
 					class="underline decoration-dashed"
 					href="https://www.cs.cmu.edu/~jssunshi/">Joshua Sunshine</a
-				> in his lab on <strong>specification refinement</strong> tools for critical
-			    code to be agentically developed. In the past I have worked with biology labs, leveraging
+				> in his lab on <strong>specification refinement</strong> tools to improve the agentic development
+			    for critical code. In the past I have worked with biology labs, leveraging
 				computer vision for microscopy analysis. <br /><br />My selected coursework includes Database Systems [15-445], Intro to Computer Systems [15-213], Great Theoretical Ideas in CS [15-251]
 				Imperative Computation [15-122], Functional Programming [15-150], and Probability and Computing [15-151].
 			</p>
@@ -85,7 +90,7 @@
 						class="text-green-600 dark:text-green-400">"System Design"</span
 					>, <span class="text-green-600 dark:text-green-400">"Optimization"</span>, <span
 						class="text-green-600 dark:text-green-400">"Databases"</span
-					>, <span class="text-gray-400 dark:text-gray-500">"User Experiences"</span>, <span
+					>, <span class="text-green-600 dark:text-green-400">"User Experiences"</span>, <span
 						class="text-gray-400 dark:text-gray-500">None</span
 					>] <br /><span class="text-blue-600 dark:text-blue-400">experience</span>      = [<span
 						class="text-green-600 dark:text-green-400">"ScottyLabs - CMU Courses Tech Lead"</span
