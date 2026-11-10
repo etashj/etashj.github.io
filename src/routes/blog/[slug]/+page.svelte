@@ -2,7 +2,8 @@
 	import type { PageData } from './$types';
 	import { resolve } from '$app/paths';
 
-	export let data: PageData;
+	let { data }: { data: PageData } = $props();
+	const Content = data.content;
 
 	const share = async () => {
 		const shareData = {
@@ -14,7 +15,6 @@
 			if (navigator.share) {
 				await navigator.share(shareData);
 			} else {
-				// Fallback: Copy to clipboard
 				await navigator.clipboard.writeText(window.location.href);
 				alert('Link copied to clipboard!');
 			}
@@ -24,45 +24,53 @@
 	};
 </script>
 
-<article
-	class="mx-3 prose self-stretch py-10 prose-slate lg:prose-xl dark:text-white dark:prose-invert"
->
-	<header>
-		<p class="text-sm text-slate-500 dark:text-white/50">{data.meta.date}</p>
-		<h1 class="dark:text-white">{data.meta.title}</h1>
-	</header>
-	<div class="-mt-6 flex flex-row gap-x-2">
-		<a href={resolve('/blog')}
-			><div
-				class="bg-black-5 my-2 w-fit rounded-lg bg-black/5 px-3 py-1 text-center text-black no-underline transition duration-300 hover:scale-105 active:scale-90 dark:bg-white/15 dark:text-white"
+<svelte:head>
+	<title>{data.meta.title} — etash jhanji</title>
+	{#if data.meta.description}
+		<meta name="description" content={data.meta.description} />
+	{/if}
+</svelte:head>
+
+<article class="mx-auto w-full max-w-4xl py-6">
+	<header class="border-b border-black/15 pb-8 dark:border-white/20">
+		<time datetime={data.meta.date} class="font-mono text-xs opacity-50">{data.meta.date}</time>
+		<h1 class="mt-2 max-w-3xl text-4xl leading-tight font-semibold xs:text-5xl">
+			{data.meta.title}
+		</h1>
+
+		<div class="mt-6 flex flex-wrap gap-5 text-sm">
+			<a href={resolve('/blog')} class="group underline decoration-dashed underline-offset-4">
+				<span class="inline-block transition-transform group-hover:-translate-x-0.5">←</span> all posts
+			</a>
+			<a
+				href="/raw-blog/{data.slug}.md"
+				target="_blank"
+				rel="external"
+				class="group underline decoration-dashed underline-offset-4"
 			>
-				← back to blogs
-			</div></a
-		>
-		<a href="/raw-blog/{data.slug}.md" target="_blank" rel="external"
-			><div
-				class="bg-black-5 my-2 w-fit rounded-lg bg-black/5 px-3 py-1 text-center text-black no-underline transition duration-300 hover:scale-105 active:scale-90 dark:bg-white/15 dark:text-white"
-			>
-				download ↓
-			</div></a
-		>
-		<button type="button" aria-label="share" on:click={share}>
-			<a>
-				<div
-					class="bg-black-5 my-2 w-fit rounded-lg bg-black/5 px-3 py-1 text-center text-black no-underline transition duration-300 hover:scale-105 active:scale-90 dark:bg-white/15 dark:text-white"
+				download <span class="inline-block transition-transform group-hover:translate-y-0.5">↓</span
 				>
-					share ↑
-				</div>
-			</a></button
-		>
+			</a>
+			<button
+				type="button"
+				onclick={share}
+				class="group underline decoration-dashed underline-offset-4"
+			>
+				share <span class="inline-block transition-transform group-hover:-translate-y-0.5">↑</span>
+			</button>
+		</div>
+	</header>
+
+	<div class="prose mt-10 max-w-none prose-slate lg:prose-lg dark:prose-invert">
+		<Content />
 	</div>
 
-	<svelte:component this={data.content} />
+	<footer class="mt-12 border-t border-black/15 pt-6 dark:border-white/20">
+		<a
+			href={resolve('/blog')}
+			class="group flex w-fit items-center gap-1 text-sm underline decoration-dashed underline-offset-4"
+		>
+			<span class="inline-block transition-transform group-hover:-translate-x-0.5">←</span> back to blog
+		</a>
+	</footer>
 </article>
-<a href={resolve('/blog')}
-	><div
-		class="bg-black-5 my-2 w-fit rounded-lg bg-black/5 px-3 py-1 text-center text-black transition duration-300 hover:scale-105 active:scale-90 dark:bg-white/15 dark:text-white"
-	>
-		← back to blogs
-	</div></a
->

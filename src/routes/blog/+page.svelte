@@ -1,48 +1,13 @@
 <script lang="ts">
 	import { resolve } from '$app/paths';
-	import type { Post } from '$lib/types';
 
 	let { data } = $props();
-	// Destructure blogs from data (ensure your load function returns { blogs })
 	const { posts } = data;
-
-	// Svelte Action for the Tilt and Shimmer effect
-	function glassTilt(node: HTMLElement) {
-		const handleMouseMove = (e: MouseEvent) => {
-			const { left, top, width, height } = node.getBoundingClientRect();
-			const x = (e.clientX - left) / width;
-			const y = (e.clientY - top) / height;
-
-			// Map coordinates to rotation (-10 to 10 degrees)
-			const rotateX = (y - 0.5) * -20;
-			const rotateY = (x - 0.5) * 20;
-
-			node.style.setProperty('--x', `${x * 100}%`);
-			node.style.setProperty('--y', `${y * 100}%`);
-			node.style.setProperty('--rx', `${rotateX}deg`);
-			node.style.setProperty('--ry', `${rotateY}deg`);
-		};
-
-		const handleMouseLeave = () => {
-			node.style.setProperty('--rx', `0deg`);
-			node.style.setProperty('--ry', `0deg`);
-		};
-
-		node.addEventListener('mousemove', handleMouseMove);
-		node.addEventListener('mouseleave', handleMouseLeave);
-
-		return {
-			destroy() {
-				node.removeEventListener('mousemove', handleMouseMove);
-				node.removeEventListener('mouseleave', handleMouseLeave);
-			}
-		};
-	}
 
 	const share = async () => {
 		const shareData = {
-			title: data.meta.title,
-			text: 'Check out this blog post!',
+			title: 'blog — etash jhanji',
+			text: 'Writing by Etash Jhanji',
 			url: window.location.href
 		};
 
@@ -50,25 +15,6 @@
 			if (navigator.share) {
 				await navigator.share(shareData);
 			} else {
-				// Fallback: Copy to clipboard
-				await navigator.clipboard.writeText(window.location.href);
-				alert('Link copied to clipboard!');
-			}
-		} catch (err) {
-			console.error('Error sharing:', err);
-		}
-	};
-
-	const rssShare = async () => {
-		const shareData = {
-			url: 'https://etashj.github.io/rss.xml'
-		};
-
-		try {
-			if (navigator.share) {
-				await navigator.share(shareData);
-			} else {
-				// Fallback: Copy to clipboard
 				await navigator.clipboard.writeText(window.location.href);
 				alert('Link copied to clipboard!');
 			}
@@ -78,123 +24,105 @@
 	};
 </script>
 
-<div class="max-5 mb-10 flex w-full flex-col content-center items-center justify-center gap-10">
-	<div class="mt-10 flex flex-row flex-wrap gap-2">
-		<a href={resolve('/')} class="group mb-2 block w-fit">
-			<div
-				class="flex w-fit max-w-fit flex-row gap-1 rounded-lg bg-black/5 px-3 py-1 text-center text-black transition duration-300 group-hover:scale-105 dark:bg-white/15 dark:text-white"
-			>
-				<div class="transition duration-150 group-hover:-translate-x-0.5">←</div>
-				back home
-			</div>
-		</a>
-		<button type="button" aria-label="share" on:click={share}>
-			<a class="group mb-2 block w-fit">
-				<div
-					class="flex w-fit max-w-fit flex-row gap-1 rounded-lg bg-black/5 px-3 py-1 text-center text-black transition duration-300 group-hover:scale-105 dark:bg-white/15 dark:text-white"
-				>
-					share
-					<div class="transition duration-150 group-hover:-translate-y-0.5">↑</div>
-				</div>
-			</a>
-		</button>
-		<button type="button" aria-label="rss" on:click={rssShare}>
-			<a class="group mb-2 block w-fit">
-				<div
-					class="flex w-fit max-w-fit flex-row gap-1 rounded-lg bg-black/5 px-3 py-1 text-center text-black transition duration-300 group-hover:scale-105 dark:bg-white/15 dark:text-white"
-				>
-					rss
-					<div class="transition duration-150 group-hover:-translate-y-0.5">↑</div>
-				</div>
-			</a>
-		</button>
-	</div>
-	{#each posts as project (project.title)}
-		<div
-			use:glassTilt
-			class="glass-card group relative flex h-fit w-full max-w-2xl shrink-0 grow flex-col
-                   gap-1 overflow-hidden rounded-[2.5rem] border-indigo-500/30 border-white/50 bg-white/10 p-6 shadow-[20px_20px_40px_rgba(0,0,0,0.3),inset_0_0_15px_rgba(255,255,255,0.1),-2px_-2px_5px_rgba(255,0,255,0.1),2px_2px_5px_rgba(0,255,255,0.1)]
-                   backdrop-blur-[4px]"
-		>
-			<div
-				class="pointer-events-none absolute inset-0 bg-[linear-gradient(135deg,transparent_0%,rgba(255,0,255,0.05)_45%,rgba(0,255,255,0.05)_55%,transparent_100%)] opacity-20 transition-opacity group-hover:opacity-40"
-			></div>
+<svelte:head>
+	<title>blog — etash jhanji</title>
+	<meta
+		name="description"
+		content="Notes on computer science, projects, school, and whatever else is on Etash Jhanji's mind."
+	/>
+</svelte:head>
 
-			<div class="relative z-10 translate-z-10">
-				<h3 class="text-xl font-bold text-gray-900 dark:text-white">
-					{project.title}<span class="ml-2 text-sm font-normal opacity-40">{project.date}</span>
-				</h3>
-				<p class="my-2 text-gray-700 dark:text-gray-300">{project.description}</p>
-				<div class="space-between flex flex-row items-start">
-					<div class="mt-4 flex w-full flex-row flex-wrap items-center justify-start gap-2">
-						{#each project.keywords as tag (tag)}
-							<div
-								class="rounded-lg border border-white/10 bg-black/5 px-2 py-1 text-xs font-medium backdrop-blur-md dark:bg-white/10"
-							>
-								{tag}
-							</div>
-						{/each}
-					</div>
-					<div
-						class="mt-4 flex w-full flex-row flex-wrap items-center items-start justify-end gap-2"
-					>
-						<a href={resolve('/blog/' + project.slug)} class="group mb-2 block w-fit"
-							><div
-								class="bg-black-5 flex w-fit max-w-fit flex-row gap-1 rounded-lg bg-black/5 px-3 py-1 text-center text-black transition duration-300 group-hover:scale-105 group-active:scale-90 dark:bg-white/15 dark:text-white"
-							>
-								read <div class="transition duration-150 group-hover:translate-x-0.5">→</div>
-							</div></a
-						>
+<section class="mx-auto w-full max-w-4xl">
+	<header class="mb-10 flex flex-col gap-5 sm:flex-row sm:items-end sm:justify-between">
+		<div class="max-w-2xl">
+			<h1 class="text-5xl leading-none xs:text-6xl">blog</h1>
+		</div>
+
+		<div class="flex shrink-0 gap-4 text-sm">
+			<button
+				type="button"
+				onclick={share}
+				class="group underline decoration-dashed underline-offset-4"
+			>
+				share <span class="inline-block transition-transform group-hover:-translate-y-0.5">↑</span>
+			</button>
+			<a
+				href="/rss.xml"
+				target="_blank"
+				rel="external"
+				class="group underline decoration-dashed underline-offset-4"
+			>
+				rss <span
+					class="inline-block transition-transform group-hover:translate-x-0.5 group-hover:-translate-y-0.5"
+					>↗</span
+				>
+			</a>
+		</div>
+	</header>
+
+	<div class="border-b border-black/15 dark:border-white/20">
+		{#each posts as post (post.title)}
+			<article class="border-t border-black/15 py-6 dark:border-white/20">
+				<div class="flex flex-col gap-2 sm:flex-row sm:items-start sm:justify-between sm:gap-6">
+					<h2 class="text-xl leading-tight font-semibold">
 						<a
-							href="/raw-blog/{project.slug}.md"
+							href={resolve('/blog/[slug]', { slug: post.slug })}
+							class="decoration-dashed underline-offset-4 hover:underline"
+						>
+							{post.title}
+						</a>
+					</h2>
+					<time datetime={post.date} class="shrink-0 font-mono text-xs opacity-45">{post.date}</time
+					>
+				</div>
+
+				{#if post.description}
+					<p class="mt-3 max-w-2xl text-sm leading-relaxed opacity-75 xs:text-base">
+						{post.description}
+					</p>
+				{/if}
+
+				<div class="mt-4 flex flex-col gap-4 sm:flex-row sm:items-end sm:justify-between">
+					{#if post.keywords?.length}
+						<ul
+							class="flex flex-wrap gap-x-3 gap-y-1 font-mono text-xs opacity-55"
+							aria-label="Post topics"
+						>
+							{#each post.keywords as keyword (keyword)}
+								<li>#{keyword.toLowerCase().replaceAll(' ', '-')}</li>
+							{/each}
+						</ul>
+					{/if}
+
+					<div class="flex shrink-0 gap-5 text-sm">
+						<a
+							href={resolve('/blog/[slug]', { slug: post.slug })}
+							class="group underline decoration-dashed underline-offset-4"
+						>
+							read <span class="inline-block transition-transform group-hover:translate-x-0.5"
+								>→</span
+							>
+						</a>
+						<a
+							href="/raw-blog/{post.slug}.md"
 							target="_blank"
 							rel="external"
-							class="group mb-2 block w-fit"
-							><div
-								class="bg-black-5 flex w-fit max-w-fit flex-row gap-1 rounded-lg bg-black/5 px-3 py-1 text-center text-black transition duration-300 group-hover:scale-105 group-active:scale-90 dark:bg-white/15 dark:text-white"
-							>
-								download <div class="transition duration-150 group-hover:translate-y-0.5">↓</div>
-							</div></a
+							class="group underline decoration-dashed underline-offset-4"
 						>
+							download <span class="inline-block transition-transform group-hover:translate-y-0.5"
+								>↓</span
+							>
+						</a>
 					</div>
 				</div>
-			</div>
-		</div>
-	{/each}
-</div>
-
-<a href={resolve('/')} class="group mb-2 block w-fit">
-	<div
-		class="flex w-fit max-w-fit flex-row gap-1 rounded-lg bg-black/5 px-3 py-1 text-center text-black transition duration-300 group-hover:scale-105 dark:bg-white/15 dark:text-white"
-	>
-		<div class="transition duration-150 group-hover:-translate-x-0.5">←</div>
-		back home
+			</article>
+		{/each}
 	</div>
-</a>
 
-<style>
-	.glass-card {
-		transform: perspective(1000px) rotateX(var(--rx, 0deg)) rotateY(var(--ry, 0deg));
-		transition: transform 0.1s ease-out;
-		transform-style: preserve-3d;
-	}
-
-	/* The Shimmer/Refraction Light Beam */
-	.glass-card::before {
-		content: '';
-		position: absolute;
-		inset: 0;
-		background: radial-gradient(
-			circle at var(--x, 50%) var(--y, 50%),
-			rgba(255, 255, 255, 0.2) 0%,
-			rgba(255, 255, 255, 0) 50%
-		);
-		opacity: 0;
-		transition: opacity 0.3s;
-		pointer-events: none;
-	}
-
-	.glass-card:hover::before {
-		opacity: 1;
-	}
-</style>
+	<a
+		href={resolve('/')}
+		class="group mt-10 flex w-fit items-center gap-1 text-sm underline decoration-dashed underline-offset-4"
+	>
+		<span class="inline-block transition-transform group-hover:-translate-x-0.5">←</span> back home
+	</a>
+</section>
