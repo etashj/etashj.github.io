@@ -134,7 +134,7 @@
 					<button
 						bind:this={active}
 						id={tab.id}
-						class="z-10 rounded-full px-3 py-1.5 text-white transition duration-300 hover:scale-110 active:scale-90 dark:text-black"
+						class="z-10 origin-center rounded-full px-3 py-1.5 text-white transition duration-300 hover:scale-110 active:scale-90 dark:text-black"
 					>
 						<a
 							href={resolve(
@@ -155,7 +155,7 @@
 				{:else}
 					<button
 						id={tab.id}
-						class="rounded-full px-3 py-1.5 transition duration-300 hover:scale-110 active:scale-90 dark:text-white"
+						class="origin-center rounded-full px-3 py-1.5 transition duration-300 hover:scale-110 active:scale-90 dark:text-white"
 						onclick={() => updateHighlight(active!, biggie)}
 					>
 						<a href={tab.path}>{tab.id}</a>
