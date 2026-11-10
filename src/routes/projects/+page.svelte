@@ -13,7 +13,7 @@
 	/>
 </svelte:head>
 
-<section class="mx-auto w-full max-w-5xl">
+<section class="mx-auto w-full max-w-5xl px-2 xs:px-0">
 	<header class="mb-10 max-w-2xl">
 		<h1 class="text-5xl leading-none xs:text-6xl">projects</h1>
 	</header>

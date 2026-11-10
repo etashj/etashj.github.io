@@ -32,7 +32,7 @@
 	/>
 </svelte:head>
 
-<section class="mx-auto w-full max-w-4xl">
+<section class="mx-auto w-full max-w-4xl px-2 xs:px-0">
 	<header class="mb-10 flex flex-col gap-5 sm:flex-row sm:items-end sm:justify-between">
 		<div class="max-w-2xl">
 			<h1 class="text-5xl leading-none xs:text-6xl">blog</h1>
