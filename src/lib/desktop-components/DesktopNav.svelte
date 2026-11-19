@@ -106,7 +106,7 @@
 
 <nav class="fixed z-50 flex w-screen flex-row content-center py-0">
 	<div
-		class="mx-auto my-8 flex flex-row content-center gap-4 rounded-full bg-black/5 p-2 dark:bg-white/10"
+		class="mx-auto my-8 flex flex-row content-center gap-4 rounded-full bg-black/5 p-2 backdrop-blur-sm dark:bg-white/10"
 	>
 		<button
 			onclick={toggleHindi}
