@@ -180,7 +180,7 @@
 			<p class="my-2 min-w-0 w-full text-sm xs:text-base">
 				Some of my hobbies include iPods, retro gaming, stationery, tetris (I'm not very good, though), and manga. I love
 				picking up new things, especially if they deviate from my normal interests and are hands on (i.e. It's fun to pretend to be an EE
-				and repair electronics).
+				and repair electronics). If you've read this far, check out my <a target="_blank" class="underline decoration-dashed" href="https://anilist.co/user/johnji/">AniList</a>.
 			</p>
 			<pre
 				class="min-w-0 w-full self-start overflow-x-auto rounded-lg bg-gray-200/50 p-4 text-sm  dark:bg-gray-800/50"><code
