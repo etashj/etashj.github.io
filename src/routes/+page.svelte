@@ -108,7 +108,7 @@
 		>
 	</p>
 	<p class="text-sm xs:text-base mb-2">
-		<span class="inline-block w-14">anilist</span><span class="inline-block w-6 text-center">+</span><a target="_blank" class="underline decoration-dashed" href="https://instagram.com/etashj/"
+		<span class="inline-block w-14">anilist</span><span class="inline-block w-6 text-center">+</span><a target="_blank" class="underline decoration-dashed" href="https://anilist.co/user/johnji/"
 			>anilist.co/johnji</a
 		>
 	</p>
