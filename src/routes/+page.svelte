@@ -88,23 +88,28 @@
 	</div>
 	<br />
 	<p class="text-sm xs:text-base">
-		+ <a target="_blank" class="underline decoration-dashed" href="mailto:etash@cmu.edu"
+		<span class="inline-block w-14">mail</span><span class="inline-block w-6 text-center">+</span><a target="_blank" class="underline decoration-dashed" href="mailto:etash@cmu.edu"
 			>etash@cmu.edu</a
 		>
 	</p>
 	<p class="text-sm xs:text-base">
-		+ <a target="_blank" class="underline decoration-dashed" href="https://linkedin.com/in/etashj"
+		<span class="inline-block w-14">linkedin</span><span class="inline-block w-6 text-center">+</span><a target="_blank" class="underline decoration-dashed" href="https://linkedin.com/in/etashj"
 			>linkedin.com/etashj</a
 		>
 	</p>
 	<p class="text-sm xs:text-base">
-		+ <a target="_blank" class="underline decoration-dashed" href="https://github.com/etashj/"
+		<span class="inline-block w-14">github</span><span class="inline-block w-6 text-center">+</span><a target="_blank" class="underline decoration-dashed" href="https://github.com/etashj/"
 			>github.com/etashj</a
 		>
 	</p>
 	<p class="text-sm xs:text-base">
-		+ <a target="_blank" class="underline decoration-dashed" href="https://instagram.com/etashj/"
+		<span class="inline-block w-14">insta</span><span class="inline-block w-6 text-center">+</span><a target="_blank" class="underline decoration-dashed" href="https://instagram.com/etashj/"
 			>instagram.com/etashj</a
+		>
+	</p>
+	<p class="text-sm xs:text-base mb-2">
+		<span class="inline-block w-14">anilist</span><span class="inline-block w-6 text-center">+</span><a target="_blank" class="underline decoration-dashed" href="https://instagram.com/etashj/"
+			>anilist.co/johnji</a
 		>
 	</p>
 	<br />
