@@ -2,6 +2,14 @@
 	import { resolve } from '$app/paths';
 </script>
 
+<svelte:head>
+	<title>design – etash jhanji</title>
+	<meta
+		name="description"
+		content="Notes on computer science, projects, school, and whatever else is on Etash Jhanji's mind."
+	/>
+</svelte:head>
+
 design coming soon
 <a href={resolve('/')}
 	><div

@@ -53,6 +53,12 @@
 
 <svelte:head>
 	<meta name="google-site-verification" content="PhIQylF6YaD0goGYqvCLkigoPWsCO0ZnwLNlGBa1PsI" />
+
+	<title>etash jhanji</title>
+	<meta
+		name="description"
+		content="Notes on computer science, projects, school, and whatever else is on Etash Jhanji's mind."
+	/>
 </svelte:head>
 
 <div class=" z-10 rounded-2xl p-4">

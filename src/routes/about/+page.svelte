@@ -18,6 +18,14 @@
 	});
 </script>
 
+<svelte:head>
+	<title>about — etash jhanji</title>
+	<meta
+		name="description"
+		content="Notes on computer science, projects, school, and whatever else is on Etash Jhanji's mind."
+	/>
+</svelte:head>
+
 <div class="z-10 max-w-full rounded-2xl p-4">
 	<div class="w-fit max-w-fit text-6xl xs:text-7xl" use:melt={$trigger}>
 		{#if $isHindi}
